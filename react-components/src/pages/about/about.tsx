@@ -1,7 +1,7 @@
 import "./about.scss";
 
 function About() {
-  return <h1>About us Page</h1>;
+  return <div className="about container">About us</div>;
 }
 
 export default About;

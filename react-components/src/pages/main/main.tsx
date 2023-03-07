@@ -1,7 +1,7 @@
 import "./main.scss";
 
 function Main() {
-  return <h1>Main Page</h1>;
+  return <div className="main container">Main Page</div>;
 }
 
 export default Main;
