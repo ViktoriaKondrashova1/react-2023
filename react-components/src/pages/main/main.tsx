@@ -1,4 +1,6 @@
 import SearchBar from "../../components/searchBar/searchBar";
+import Card from "../../components/card/card";
+import Data from "../../assets/data.json";
 import "./main.scss";
 
 function Main() {
@@ -6,6 +8,11 @@ function Main() {
     <div className="main">
       <div className="container">
         <SearchBar />
+        <div className="main__cards">
+          {Data.map((item, index) => {
+            return <Card title={item.title} key={index} image={item.image} />;
+          })}
+        </div>
       </div>
     </div>
   );

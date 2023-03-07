@@ -4,7 +4,9 @@ function SearchBar() {
   return (
     <div className="search">
       <input type="search" className="search__input" placeholder="Search..." />
-      <button className="search__btn">Search</button>
+      <button type="submit" className="search__btn">
+        Search
+      </button>
     </div>
   );
 }
