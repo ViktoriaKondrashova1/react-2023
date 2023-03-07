@@ -1,0 +1,33 @@
+.nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  &__list {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &:hover {
+      color: #efe09d;
+      transform: scale(1.1);
+      transition: 0.4s all ease;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.active {
+  color: #efe09d;
+}
