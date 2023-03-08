@@ -4,7 +4,20 @@ import Card from "../../components/card/card";
 import Data from "../../assets/data.json";
 import "./main.scss";
 
-class Main extends React.Component {
+interface MyState {
+  value: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+class Main extends React.Component<{}, MyState> {
+  constructor(props: React.Component) {
+    super(props);
+    this.state = {
+      value: (localStorage.getItem("search")
+        ? localStorage.getItem("search")
+        : "")!,
+    };
+  }
   saveValue() {
     const input = document.querySelector(".search__input") as HTMLInputElement;
     localStorage.setItem("search", input.value);
@@ -13,7 +26,7 @@ class Main extends React.Component {
     return (
       <div className="main">
         <div className="container">
-          <SearchBar handleChange={this.saveValue} />
+          <SearchBar handleChange={this.saveValue} value={this.state.value} />
           <div className="main__cards">
             {Data.map((item) => {
               return (
