@@ -1,7 +1,7 @@
 .card {
   background-color: #eeeeee;
   cursor: pointer;
-  height: auto;
+  height: fit-content;
 
   &:hover {
     transform: scale(1.05);
@@ -94,5 +94,25 @@
     background-position: 50%;
     width: 20px;
     height: 20px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .card {
+    &__image {
+      height: 150px;
+    }
+
+    &__info {
+      height: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .card {
+    &__image {
+      height: 250px;
+    }
   }
 }
