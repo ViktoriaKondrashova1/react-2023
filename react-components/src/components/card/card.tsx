@@ -6,8 +6,8 @@ interface cardProps {
   author: string;
   image: string;
   link: string;
-  //   time: number;
-  //   veg: boolean;
+  time: number;
+  //veg: boolean;
   raiting: number;
 }
 
@@ -20,6 +20,9 @@ function Card(props: cardProps) {
           <h3 className="card__title">{props.title}</h3>
           <p className="card__author">by {props.author}</p>
           <p className="card__rating">raiting: {props.raiting}</p>
+          <div className="card__additional">
+            <p className="card__time">{props.time} min</p>
+          </div>
         </div>
       </div>
     </Link>

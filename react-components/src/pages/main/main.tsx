@@ -18,6 +18,7 @@ function Main() {
                 link={item.link}
                 author={item.author}
                 raiting={item.rating}
+                time={item.time}
               />
             );
           })}
