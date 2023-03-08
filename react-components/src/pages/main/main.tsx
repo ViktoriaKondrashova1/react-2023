@@ -4,10 +4,14 @@ import Data from "../../assets/data.json";
 import "./main.scss";
 
 function Main() {
+  const saveValue = () => {
+    const input = document.querySelector(".search__input") as HTMLInputElement;
+    localStorage.setItem("search", input.value);
+  };
   return (
     <div className="main">
       <div className="container">
-        <SearchBar />
+        <SearchBar handleChange={saveValue} />
         <div className="main__cards">
           {Data.map((item) => {
             return (
