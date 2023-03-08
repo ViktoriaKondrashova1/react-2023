@@ -9,11 +9,11 @@ function Main() {
       <div className="container">
         <SearchBar />
         <div className="main__cards">
-          {Data.map((item, index) => {
+          {Data.map((item) => {
             return (
               <Card
                 title={item.title}
-                key={index}
+                key={item.id}
                 image={item.image}
                 link={item.link}
                 author={item.author}
