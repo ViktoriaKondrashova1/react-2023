@@ -4,35 +4,39 @@
     "author": "HIIT Weekly",
     "image": "https://i.pinimg.com/564x/92/39/f1/9239f1c9755f957eba03ed4c5af35a39.jpg",
     "link": "https://hiitweekly.com/the-best-avocado-ricotta-on-sourdough-toast",
-    "date": "24/07/2021",
+    "date": "22/09/2020",
     "time": 5,
-    "veg": true
+    "veg": true,
+    "rating": 4.6
   },
   {
     "title": "Summer Kale Salad with Peaches and Candied Pecans",
-    "author": "Becky at A Calculated Whisk",
+    "author": "Becky",
     "image": "https://i.pinimg.com/564x/eb/34/af/eb34afc1900abc803179261147901a58.jpg",
     "link": "https://acalculatedwhisk.com/summer-kale-salad/",
-    "date": "03/01/2020",
+    "date": "18/07/2016",
     "time": 20,
-    "veg": true
+    "veg": true,
+    "rating": 4.8
   },
   {
     "title": "Most Delicious Falafel Recipe",
     "author": "Lisa Bryan",
     "image": "https://i.pinimg.com/564x/28/eb/1a/28eb1acb10aa03cef7eeb8d3e45c21ed.jpg",
     "link": "https://downshiftology.com/recipes/falafel/",
-    "date": "11/01/2019",
+    "date": "19/09/2020",
     "time": 90,
-    "veg": true
+    "veg": true,
+    "rating": 4.3
   },
   {
     "title": "Eggplant and sun dried tomato pasta with ricotta",
-    "author": "Anna's Table",
+    "author": "Anna Chwistek",
     "image": "https://i.pinimg.com/564x/6b/dc/bc/6bdcbccca5addf470cbc539d4a02a9ae.jpg",
     "link": "https://www.servingdumplings.com/recipes/eggplant-and-sun-dried-tomato-pasta-with-ricotta/?_gl=1*96fgdb*_ga*XzN1aWFucmZFVkdmOUwyeGFrZmVhYVpRMG96ZTBaangxZ21MS2x5QzhFM1ljMlpJOTdDcUFaWkI5M191WW1MRg..",
-    "date": "10/05/2022",
+    "date": "03/09/2020",
     "time": 25,
-    "veg": true
+    "veg": true,
+    "rating": 4.9
   }
 ]

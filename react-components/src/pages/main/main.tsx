@@ -10,7 +10,15 @@ function Main() {
         <SearchBar />
         <div className="main__cards">
           {Data.map((item, index) => {
-            return <Card title={item.title} key={index} image={item.image} />;
+            return (
+              <Card
+                title={item.title}
+                key={index}
+                image={item.image}
+                link={item.link}
+                author={item.author}
+              />
+            );
           })}
         </div>
       </div>

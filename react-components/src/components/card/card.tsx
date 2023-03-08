@@ -1,20 +1,27 @@
+import { Link } from "react-router-dom";
 import "./card.scss";
 
 interface cardProps {
   title: string;
-  //   author: string;
+  author: string;
   image: string;
-  //   link: string;
+  link: string;
   //   time: number;
   //   veg: boolean;
+  //   raiting: number;
 }
 
 function Card(props: cardProps) {
   return (
-    <div className="card">
-      <img className="card__image" src={props.image} alt={props.title} />
-      <h3 className="card__title">{props.title}</h3>
-    </div>
+    <Link to={props.link} target="_blank">
+      <div className="card">
+        <img className="card__image" src={props.image} alt={props.title} />
+        <div className="card__info">
+          <h3 className="card__title">{props.title}</h3>
+          <p className="card__author">by {props.author}</p>
+        </div>
+      </div>
+    </Link>
   );
 }
 
