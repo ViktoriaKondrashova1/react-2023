@@ -7,11 +7,12 @@ interface cardProps {
   image: string;
   link: string;
   time: number;
-  //veg: boolean;
+  veg: boolean;
   raiting: number;
 }
 
 function Card(props: cardProps) {
+  const vegClass = props.veg === true ? "card__veg" : "card__meat";
   return (
     <Link to={props.link} target="_blank">
       <div className="card">
@@ -22,6 +23,7 @@ function Card(props: cardProps) {
           <p className="card__rating">raiting: {props.raiting}</p>
           <div className="card__additional">
             <p className="card__time">{props.time} min</p>
+            <div className={vegClass} />
           </div>
         </div>
       </div>

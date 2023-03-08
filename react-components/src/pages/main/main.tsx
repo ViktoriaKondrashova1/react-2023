@@ -19,6 +19,7 @@ function Main() {
                 author={item.author}
                 raiting={item.rating}
                 time={item.time}
+                veg={item.veg}
               />
             );
           })}
