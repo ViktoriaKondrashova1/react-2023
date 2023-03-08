@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./linkButton.scss";
 
@@ -6,14 +7,19 @@ interface linkButtonProps {
   link: string;
 }
 
-function LinkButton(props: linkButtonProps) {
-  return (
-    <button className="link-btn">
-      <Link className="link-btn__link" to={props.link}>
-        {props.text}
-      </Link>
-    </button>
-  );
+class LinkButton extends React.Component<linkButtonProps> {
+  constructor(props: linkButtonProps) {
+    super(props);
+  }
+  render() {
+    return (
+      <button className="link-btn">
+        <Link className="link-btn__link" to={this.props.link}>
+          {this.props.text}
+        </Link>
+      </button>
+    );
+  }
 }
 
 export default LinkButton;

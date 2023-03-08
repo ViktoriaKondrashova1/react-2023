@@ -1,14 +1,17 @@
+import React from "react";
 import Navigation from "../../components/navigation/navigation";
 import "./header.scss";
 
-function Header() {
-  return (
-    <header className="header">
-      <div className="container">
-        <Navigation />
-      </div>
-    </header>
-  );
+class Header extends React.Component {
+  render() {
+    return (
+      <header className="header">
+        <div className="container">
+          <Navigation />
+        </div>
+      </header>
+    );
+  }
 }
 
 export default Header;
