@@ -17,6 +17,7 @@ function Main() {
                 image={item.image}
                 link={item.link}
                 author={item.author}
+                raiting={item.rating}
               />
             );
           })}

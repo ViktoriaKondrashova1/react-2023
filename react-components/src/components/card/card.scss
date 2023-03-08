@@ -25,7 +25,27 @@
   }
 
   &__author {
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
+    margin-bottom: 5px;
+  }
+
+  &__rating {
+    font-size: 16px;
+    font-style: italic;
+    position: relative;
+    margin-top: 0;
+
+    &::after {
+      content: "";
+      background-image: url("../../assets/svg/star.svg");
+      background-size: 15px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      margin-left: 3px;
+    }
   }
 }

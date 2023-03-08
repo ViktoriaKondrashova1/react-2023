@@ -8,7 +8,7 @@ interface cardProps {
   link: string;
   //   time: number;
   //   veg: boolean;
-  //   raiting: number;
+  raiting: number;
 }
 
 function Card(props: cardProps) {
@@ -19,6 +19,7 @@ function Card(props: cardProps) {
         <div className="card__info">
           <h3 className="card__title">{props.title}</h3>
           <p className="card__author">by {props.author}</p>
+          <p className="card__rating">raiting: {props.raiting}</p>
         </div>
       </div>
     </Link>
