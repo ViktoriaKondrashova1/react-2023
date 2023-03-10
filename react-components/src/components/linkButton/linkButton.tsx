@@ -13,7 +13,7 @@ class LinkButton extends React.Component<linkButtonProps> {
   }
   render() {
     return (
-      <button className="link-btn">
+      <button type="button" className="link-btn">
         <Link className="link-btn__link" to={this.props.link}>
           {this.props.text}
         </Link>
