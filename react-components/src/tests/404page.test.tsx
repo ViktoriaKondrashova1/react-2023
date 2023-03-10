@@ -1,9 +1,14 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import Page404 from "../pages/404/404";
 
 describe("Page404", () => {
   it("Renders the 404 page", () => {
-    render(<Page404 />);
+    render(
+      <BrowserRouter>
+        <Page404 />
+      </BrowserRouter>
+    );
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("404");
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(

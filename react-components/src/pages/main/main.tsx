@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "../../components/searchBar/searchBar";
 import Card from "../../components/card/card";
-import Data from "../../assets/data.json";
+import data from "../../assets/data.json";
 import "./main.scss";
 
 interface MainState {
@@ -28,7 +28,7 @@ class Main extends React.Component<{}, MainState> {
         <div className="container">
           <SearchBar value={this.state.value} />
           <div className="main__cards">
-            {Data.map((item) => {
+            {data.map((item) => {
               return (
                 <Card
                   title={item.title}
