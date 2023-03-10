@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Page404 from "../pages/404/404";
 
-describe("Page404", () => {
+describe("404 page", () => {
   it("Renders the 404 page", () => {
     render(
       <BrowserRouter>
