@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678461127595" clover="3.2.0">
-  <project timestamp="1678461127596" name="All files">
-    <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="29" coveredelements="29" complexity="0" loc="25" ncloc="25" packages="1" files="1" classes="1"/>
-    <file name="linkButton.tsx" path="D:\FrontEnd курс\react-2023\react-components\src\components\linkButton\linkButton.tsx">
-      <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="2" type="stmt"/>
-      <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="15" count="2" type="stmt"/>
-      <line num="16" count="2" type="stmt"/>
-      <line num="17" count="2" type="stmt"/>
-      <line num="18" count="2" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="25" count="1" type="stmt"/>
-    </file>
+<coverage generated="1678461615032" clover="3.2.0">
+  <project timestamp="1678461615032" name="All files">
+    <metrics statements="39" coveredstatements="39" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="43" coveredelements="43" complexity="0" loc="39" ncloc="39" packages="2" files="2" classes="2"/>
+    <package name="components.navigation">
+      <metrics statements="22" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="navigation.tsx" path="D:\FrontEnd курс\react-2023\react-components\src\components\navigation\navigation.tsx">
+        <metrics statements="22" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="containers.header">
+      <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="header.tsx" path="D:\FrontEnd курс\react-2023\react-components\src\containers\header\header.tsx">
+        <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
