@@ -21,7 +21,7 @@ class Card extends React.Component<cardProps> {
   render() {
     return (
       <Link to={this.props.link} target="_blank">
-        <div className="card">
+        <div className="card" data-testid="card">
           <img
             className="card__image"
             src={this.props.image}

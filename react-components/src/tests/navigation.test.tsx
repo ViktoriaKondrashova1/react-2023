@@ -4,11 +4,7 @@ import Navigation from "../components/navigation/navigation";
 
 describe("Navigation component", () => {
   it("Renders navigation", () => {
-    render(
-      <BrowserRouter>
-        <Navigation />
-      </BrowserRouter>
-    );
+    render(<Navigation />, { wrapper: BrowserRouter });
 
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByRole("list")).toBeInTheDocument();

@@ -6,18 +6,17 @@ import { BrowserRouter } from "react-router-dom";
 describe("Card component", () => {
   it("Renders card", () => {
     render(
-      <BrowserRouter>
-        <Card
-          title={data[0].title}
-          key={data[0].id}
-          image={data[0].image}
-          link={data[0].link}
-          author={data[0].author}
-          raiting={data[0].rating}
-          time={data[0].time}
-          veg={data[0].veg}
-        />
-      </BrowserRouter>
+      <Card
+        title={data[0].title}
+        key={data[0].id}
+        image={data[0].image}
+        link={data[0].link}
+        author={data[0].author}
+        raiting={data[0].rating}
+        time={data[0].time}
+        veg={data[0].veg}
+      />,
+      { wrapper: BrowserRouter }
     );
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       data[0].title

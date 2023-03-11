@@ -27,7 +27,7 @@ class Main extends React.Component<{}, MainState> {
       <div className="main">
         <div className="container">
           <SearchBar value={this.state.value} />
-          <div className="main__cards">
+          <div className="main__cards" data-testid="cards-list">
             {data.map((item) => {
               return (
                 <Card

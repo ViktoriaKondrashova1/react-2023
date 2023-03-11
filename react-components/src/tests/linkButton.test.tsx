@@ -4,11 +4,7 @@ import LinkButton from "../components/linkButton/linkButton";
 
 describe("LinkButton component", () => {
   it("Renders linkButton without text", () => {
-    render(
-      <BrowserRouter>
-        <LinkButton link="/" />
-      </BrowserRouter>
-    );
+    render(<LinkButton link="/" />, { wrapper: BrowserRouter });
 
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.getByRole("button")).toHaveAttribute("type", "button");

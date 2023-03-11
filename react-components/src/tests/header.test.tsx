@@ -4,11 +4,7 @@ import Header from "../containers/header/header";
 
 describe("Header component", () => {
   it("Renders Header", () => {
-    render(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    );
+    render(<Header />, { wrapper: BrowserRouter });
 
     expect(screen.getByRole("navigation")).toBeInTheDocument();
   });

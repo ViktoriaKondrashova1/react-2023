@@ -4,11 +4,7 @@ import Page404 from "../pages/404/404";
 
 describe("404 page", () => {
   it("Renders the 404 page", () => {
-    render(
-      <BrowserRouter>
-        <Page404 />
-      </BrowserRouter>
-    );
+    render(<Page404 />, { wrapper: BrowserRouter });
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("404");
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
