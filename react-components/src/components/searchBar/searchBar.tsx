@@ -1,14 +1,23 @@
 import React from "react";
 import "./searchBar.scss";
 
-interface SearchBarProps {
+interface SearchBarState {
   value: string;
-  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-class SearchBar extends React.Component<SearchBarProps> {
-  constructor(props: SearchBarProps) {
+// eslint-disable-next-line @typescript-eslint/ban-types
+class SearchBar extends React.Component<{}, SearchBarState> {
+  constructor(props: React.Component) {
     super(props);
+    this.state = {
+      value: localStorage.getItem("search") || "",
+    };
+  }
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ value: event.target.value });
+  };
+  componentWillUnmount(): void {
+    localStorage.setItem("search", this.state.value);
   }
   render() {
     return (
@@ -17,8 +26,8 @@ class SearchBar extends React.Component<SearchBarProps> {
           type="search"
           className="search__input"
           placeholder="Search..."
-          defaultValue={this.props.value}
-          onChange={this.props.handleChange}
+          defaultValue={this.state.value}
+          onChange={this.handleChange}
         />
         <button type="submit" className="search__btn">
           Search

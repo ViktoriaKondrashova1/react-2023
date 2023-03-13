@@ -4,32 +4,12 @@ import Card from "../../components/card/card";
 import data from "../../assets/data.json";
 import "./main.scss";
 
-interface MainState {
-  value: string;
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-class Main extends React.Component<{}, MainState> {
-  constructor(props: React.Component) {
-    super(props);
-    this.state = {
-      value: localStorage.getItem("search") || "",
-    };
-  }
-  setValueState = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: event.target.value });
-  };
-  componentWillUnmount(): void {
-    localStorage.setItem("search", this.state.value);
-  }
+class Main extends React.Component {
   render() {
     return (
       <div className="main">
         <div className="container">
-          <SearchBar
-            value={this.state.value}
-            handleChange={this.setValueState}
-          />
+          <SearchBar />
           <div className="main__cards" data-testid="cards-list">
             {data.map((item) => {
               return (
