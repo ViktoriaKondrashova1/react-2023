@@ -18,15 +18,20 @@ class Main extends React.Component<{}, MainState> {
         : "")!,
     };
   }
+  setValueState = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ value: event.target.value });
+  };
   componentWillUnmount(): void {
-    const input = document.querySelector(".search__input") as HTMLInputElement;
-    localStorage.setItem("search", input.value);
+    localStorage.setItem("search", this.state.value);
   }
   render() {
     return (
       <div className="main">
         <div className="container">
-          <SearchBar value={this.state.value} />
+          <SearchBar
+            value={this.state.value}
+            handleChange={this.setValueState}
+          />
           <div className="main__cards" data-testid="cards-list">
             {data.map((item) => {
               return (

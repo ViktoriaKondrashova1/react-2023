@@ -3,6 +3,7 @@ import "./searchBar.scss";
 
 interface SearchBarProps {
   value: string;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 class SearchBar extends React.Component<SearchBarProps> {
@@ -17,6 +18,7 @@ class SearchBar extends React.Component<SearchBarProps> {
           className="search__input"
           placeholder="Search..."
           defaultValue={this.props.value}
+          onChange={this.props.handleChange}
         />
         <button type="submit" className="search__btn">
           Search
