@@ -13,9 +13,7 @@ class Main extends React.Component<{}, MainState> {
   constructor(props: React.Component) {
     super(props);
     this.state = {
-      value: (localStorage.getItem("search")
-        ? localStorage.getItem("search")
-        : "")!,
+      value: localStorage.getItem("search") || "",
     };
   }
   setValueState = (event: React.ChangeEvent<HTMLInputElement>) => {
