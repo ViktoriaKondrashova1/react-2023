@@ -18,12 +18,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
   updateTitle = () => {
-    const pages: object = {
+    const pages = {
       "/": "MAIN PAGE",
       "/about": "ABOUT PAGE",
     };
-    const titleName = pages[location.pathname as keyof object] || "";
-    this.setState({ title: titleName });
+    this.setState({ title: pages[location.pathname as keyof object] || "" });
   };
   render() {
     this.updateTitle();
