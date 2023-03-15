@@ -6,9 +6,12 @@ interface HeaderState {
   title: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-class Header extends React.Component<{}, HeaderState> {
-  constructor(props: React.Component) {
+type HeaderProps = {
+  [key: string]: never;
+};
+
+class Header extends React.Component<HeaderProps, HeaderState> {
+  constructor(props: HeaderProps) {
     super(props);
     this.state = {
       title: "",

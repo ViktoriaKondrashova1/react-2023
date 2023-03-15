@@ -5,9 +5,12 @@ interface SearchBarState {
   value: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-class SearchBar extends React.Component<{}, SearchBarState> {
-  constructor(props: React.Component) {
+type SearchBarProps = {
+  [key: string]: never;
+};
+
+class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
+  constructor(props: SearchBarProps) {
     super(props);
     this.state = {
       value: localStorage.getItem("search") || "",
