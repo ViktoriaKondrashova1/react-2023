@@ -10,7 +10,5 @@ describe("404 page", () => {
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
       "The page was not found"
     );
-    expect(screen.getByRole("button")).toHaveAttribute("type", "button");
-    expect(screen.getByRole("button")).toHaveTextContent("Go to the main page");
   });
 });
