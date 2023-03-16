@@ -14,22 +14,22 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   constructor(props: HeaderProps) {
     super(props);
     this.state = {
-      title: "",
+      title: location.pathname === "/" ? "MAIN PAGE" : "",
     };
   }
   updateTitle = () => {
     const pages = {
-      "/": "MAIN PAGE",
-      "/about": "ABOUT PAGE",
+      "/": "MAIN",
+      "/about": "ABOUT",
     };
-    this.setState({ title: pages[location.pathname as keyof object] || "" });
+    const titleName = `${pages[location.pathname as keyof object] || ""} PAGE`;
+    this.setState({ title: titleName });
   };
   render() {
-    this.updateTitle();
     return (
       <header className="header">
         <div className="container header__container">
-          <Navigation />
+          <Navigation handleClick={this.updateTitle} />
           <h1 className="header__title">{this.state.title}</h1>
         </div>
       </header>
