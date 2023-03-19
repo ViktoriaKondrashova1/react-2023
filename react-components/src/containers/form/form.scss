@@ -1,7 +1,10 @@
 .form {
+  display: flex;
+  flex-direction: column;
   padding-top: 40px;
+  gap: 30px;
 
-  &__name {
+  &__wrapper {
     display: flex;
     justify-content: center;
     gap: 40px;
