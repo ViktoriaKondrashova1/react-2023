@@ -18,7 +18,7 @@ class Navigation extends React.Component<NavigationProps> {
             <NavLink to="/about">About Us</NavLink>
           </li>
           <li className="nav__item" onClick={this.props.handleClick}>
-            <NavLink to="/forms">Forms</NavLink>
+            <NavLink to="/form">Form</NavLink>
           </li>
         </ul>
       </nav>

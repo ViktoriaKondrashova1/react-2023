@@ -1,0 +1,20 @@
+.text-input {
+  &__label {
+    font-size: 20px;
+  }
+
+  &__input {
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    border: solid 2px #efe09d;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-top: 10px;
+
+    &:focus {
+      outline: #efe09d;
+    }
+  }
+}

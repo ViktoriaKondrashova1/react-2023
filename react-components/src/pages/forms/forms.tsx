@@ -1,16 +1,16 @@
 import React from "react";
-import "./forms.scss";
+import "./form.scss";
 
-class Forms extends React.Component {
+class Form extends React.Component {
   render() {
     return (
-      <div className="forms">
+      <div className="form">
         <div className="container">
-          <h1 className="forms__title">Forms</h1>
+          <h1 className="form__title">Forms</h1>
         </div>
       </div>
     );
   }
 }
 
-export default Forms;
+export default Form;

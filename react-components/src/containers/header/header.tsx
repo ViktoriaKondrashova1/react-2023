@@ -21,7 +21,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const pages = {
       "/": "MAIN",
       "/about": "ABOUT",
-      "/forms": " FORMS",
+      "/form": " FORM",
     };
     const titleName = `${pages[location.pathname as keyof object]} PAGE`;
     this.setState({ title: titleName });
