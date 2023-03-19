@@ -13,8 +13,8 @@ class BaseInput extends React.Component<baseInputProps> {
   }
   render() {
     return (
-      <form className="base-input">
-        <label htmlFor={this.props.name} className="base-input__label">
+      <form className="input-form">
+        <label htmlFor={this.props.name} className="input-form__label">
           {this.props.name
             .split("-")
             .map((word) => word[0].toUpperCase() + word.substring(1))
@@ -23,8 +23,9 @@ class BaseInput extends React.Component<baseInputProps> {
           <input
             type={this.props.type}
             name={this.props.name}
-            className="base-input__input"
+            className="input-form__input"
             max={this.props.max}
+            required
           />
         </label>
       </form>
