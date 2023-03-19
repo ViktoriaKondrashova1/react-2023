@@ -1,0 +1,9 @@
+.form {
+  padding-top: 40px;
+
+  &__name {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+}
