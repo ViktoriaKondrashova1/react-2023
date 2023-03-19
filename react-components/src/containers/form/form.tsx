@@ -1,6 +1,7 @@
 import React from "react";
 import BaseInput from "../../components/inputs/baseInput/baseInput";
 import SelectInput from "../../components/inputs/selectInput/selectInput";
+import RadioInput from "../../components/inputs/radioInput/radioInput";
 import "./form.scss";
 
 class Form extends React.Component {
@@ -18,6 +19,12 @@ class Form extends React.Component {
             max={new Date().toISOString().split("T")[0]}
           />
           <SelectInput name="place-of-residence" />
+        </div>
+        <div className="form__wrapper">
+          <form className="radio-input-form">
+            <RadioInput name="Female" />
+            <RadioInput name="Male" />
+          </form>
         </div>
       </div>
     );

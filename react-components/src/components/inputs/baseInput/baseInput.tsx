@@ -13,22 +13,20 @@ class BaseInput extends React.Component<baseInputProps> {
   }
   render() {
     return (
-      <form className="input-form">
-        <label htmlFor={this.props.name} className="input-form__label">
-          {this.props.name
-            .split("-")
-            .map((word) => word[0].toUpperCase() + word.substring(1))
-            .join(" ")}
-          <br />
-          <input
-            type={this.props.type}
-            name={this.props.name}
-            className="input-form__input"
-            max={this.props.max}
-            required
-          />
-        </label>
-      </form>
+      <label htmlFor={this.props.name} className="input-form__label">
+        {this.props.name
+          .split("-")
+          .map((word) => word[0].toUpperCase() + word.substring(1))
+          .join(" ")}
+        <br />
+        <input
+          type={this.props.type}
+          name={this.props.name}
+          className="input-form__input"
+          max={this.props.max}
+          required
+        />
+      </label>
     );
   }
 }
