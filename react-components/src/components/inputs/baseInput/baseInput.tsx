@@ -4,6 +4,7 @@ import "./baseInput.scss";
 interface baseInputProps {
   name: string;
   type: string;
+  max?: string;
 }
 
 class BaseInput extends React.Component<baseInputProps> {
@@ -23,6 +24,7 @@ class BaseInput extends React.Component<baseInputProps> {
             type={this.props.type}
             name={this.props.name}
             className="base-input__input"
+            max={this.props.max}
           />
         </label>
       </form>

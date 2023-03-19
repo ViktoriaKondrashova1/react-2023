@@ -7,11 +7,15 @@ class Form extends React.Component {
     return (
       <div className="form">
         <div className="form__wrapper">
-          <BaseInput name="first-name" type={"text"} />
-          <BaseInput name="last-name" type={"text"} />
+          <BaseInput name="first-name" type="text" />
+          <BaseInput name="last-name" type="text" />
         </div>
         <div className="form__wrapper">
-          <BaseInput name="date-of-birth" type={"date"} />
+          <BaseInput
+            name="date-of-birth"
+            type="date"
+            max={new Date().toISOString().split("T")[0]}
+          />
         </div>
       </div>
     );
