@@ -1,12 +1,14 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  width: 50%;
+  margin: auto;
+  padding: 40px 0;
   gap: 30px;
 
   &__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 40px;
   }
 }
@@ -24,9 +26,15 @@
   }
 
   &::before {
-    content: "Press to Select file";
+    content: "Click to select file";
     padding: 5px;
     cursor: pointer;
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    width: 100%;
   }
 }

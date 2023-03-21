@@ -2,6 +2,7 @@ import React from "react";
 import BaseInput from "../../components/inputs/baseInput/baseInput";
 import SelectInput from "../../components/inputs/selectInput/selectInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
+import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import "./form.scss";
 
 class Form extends React.Component {
@@ -20,21 +21,19 @@ class Form extends React.Component {
           />
           <SelectInput name="place-of-residence" />
         </div>
-        <div className="form__wrapper">
-          <form className="radio-input-form">
-            <RadioInput name="Female" />
-            <RadioInput name="Male" />
-            <RadioInput name="Other" />
-          </form>
-        </div>
-        <div className="form__wrapper">
-          <BaseInput
-            name="user-image"
-            type="file"
-            accept="image/png, image/jpg, image/gif, image/jpeg"
-            className="file-input"
-          />
-        </div>
+        <form className="radio-input-form">
+          <RadioInput name="Female" />
+          <RadioInput name="Male" />
+          <RadioInput name="Other" />
+        </form>
+        <BaseInput
+          name="user-image"
+          type="file"
+          accept="image/png, image/jpg, image/gif, image/jpeg"
+          className="file-input"
+        />
+        <CheckboxInput label="I consent to the processing of my personal data" />
+        <CheckboxInput label="I agree with the privacy policy" />
       </div>
     );
   }
