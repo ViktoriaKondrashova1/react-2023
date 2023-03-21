@@ -24,7 +24,16 @@ class Form extends React.Component {
           <form className="radio-input-form">
             <RadioInput name="Female" />
             <RadioInput name="Male" />
+            <RadioInput name="Other" />
           </form>
+        </div>
+        <div className="form__wrapper">
+          <BaseInput
+            name="user-image"
+            type="file"
+            accept="image/png, image/jpg, image/gif, image/jpeg"
+            className="file-input"
+          />
         </div>
       </div>
     );

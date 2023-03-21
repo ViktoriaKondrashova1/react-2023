@@ -5,11 +5,15 @@ interface baseInputProps {
   name: string;
   type: string;
   max?: string;
+  accept?: string;
+  className?: string;
 }
 
 class BaseInput extends React.Component<baseInputProps> {
+  classes: string;
   constructor(props: baseInputProps) {
     super(props);
+    this.classes = `${"input-form__input"} ${this.props.className}`;
   }
   render() {
     return (
@@ -22,8 +26,9 @@ class BaseInput extends React.Component<baseInputProps> {
         <input
           type={this.props.type}
           name={this.props.name}
-          className="input-form__input"
+          className={this.classes}
           max={this.props.max}
+          accept={this.props.accept}
           required
         />
       </label>
