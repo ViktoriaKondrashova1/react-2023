@@ -3,6 +3,7 @@ import BaseInput from "../../components/inputs/baseInput/baseInput";
 import SelectInput from "../../components/inputs/selectInput/selectInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
+import Button from "../../components/button/button";
 import "./form.scss";
 
 class Form extends React.Component {
@@ -34,6 +35,7 @@ class Form extends React.Component {
         />
         <CheckboxInput label="I consent to the processing of my personal data" />
         <CheckboxInput label="I agree with the privacy policy" />
+        <Button text="Submit" />
       </div>
     );
   }
