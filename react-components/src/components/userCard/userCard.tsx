@@ -1,7 +1,7 @@
 import React from "react";
 import "./userCard.scss";
 
-interface userCardProps {
+export interface userCardProps {
   name: string;
   lastName: string;
   birthDate: string;
@@ -11,9 +11,6 @@ interface userCardProps {
 }
 
 class UserCard extends React.Component<userCardProps> {
-  constructor(props: userCardProps) {
-    super(props);
-  }
   render() {
     return (
       <div className="user-card" data-testid="user-card">

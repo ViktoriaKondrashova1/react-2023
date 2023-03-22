@@ -11,7 +11,7 @@ class SelectInput extends React.Component<selectInputProps> {
     super(props);
     this.countries = [
       "Belarus",
-      "Ukrain",
+      "Ukraine",
       "Poland",
       "Lithuania",
       "Latvia",
