@@ -4,9 +4,12 @@ import "./baseInput.scss";
 interface baseInputProps {
   name: string;
   type: string;
+  propRef: React.RefObject<HTMLInputElement>;
+  defaultValue: string;
   max?: string;
   accept?: string;
   className?: string;
+  handleChange?: () => void;
 }
 
 class BaseInput extends React.Component<baseInputProps> {
@@ -24,11 +27,14 @@ class BaseInput extends React.Component<baseInputProps> {
           .join(" ")}
         <br />
         <input
+          ref={this.props.propRef}
           type={this.props.type}
           name={this.props.name}
+          defaultValue={this.props.defaultValue}
           className={this.classes}
           max={this.props.max}
           accept={this.props.accept}
+          onChange={this.props.handleChange}
           required
         />
       </label>
