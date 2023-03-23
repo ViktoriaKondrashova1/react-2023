@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: fit-content;
   margin: auto;
   padding: 40px 0;
   gap: 30px;
@@ -13,11 +13,9 @@
   }
 }
 
-.radio-input-form {
+.radio-input-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1024px) {
