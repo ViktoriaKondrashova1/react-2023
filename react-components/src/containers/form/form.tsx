@@ -5,7 +5,7 @@ import SelectInput from "../../components/inputs/selectInput/selectInput";
 import FileInput from "../../components/inputs/fileInput/fileInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
-import Button from "../../components/button/button";
+import SubmitInput from "../../components/inputs/submitInput/submitInput";
 import "./form.scss";
 
 type FormProps = {
@@ -85,7 +85,7 @@ class Form extends React.Component<FormProps, FormState> {
         />
         <CheckboxInput label="I consent to the processing of my personal data" />
         <CheckboxInput label="I agree with the privacy policy" />
-        <Button text="Submit" />
+        <SubmitInput value="Submit" disabled={true} />
       </div>
     );
   }
