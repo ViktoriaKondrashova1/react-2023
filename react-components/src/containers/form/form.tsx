@@ -17,6 +17,7 @@ interface FormState {
   lastNameValue: string;
   birthValue: string;
   selectValue: string;
+  radioValue: string;
   imageValue: string;
 }
 
@@ -25,7 +26,11 @@ class Form extends React.Component<FormProps, FormState> {
   private lastNameRef: React.RefObject<HTMLInputElement>;
   private birthRef: React.RefObject<HTMLInputElement>;
   private selecteRef: React.RefObject<HTMLSelectElement>;
+  private femaleRadioRef: React.RefObject<HTMLInputElement>;
+  private maleRadioRef: React.RefObject<HTMLInputElement>;
+  private otherRadioRef: React.RefObject<HTMLInputElement>;
   private imageRef: React.RefObject<HTMLInputElement>;
+  private formRef: React.RefObject<HTMLFormElement>;
   constructor(props: FormProps) {
     super(props);
     this.state = {
@@ -33,13 +38,18 @@ class Form extends React.Component<FormProps, FormState> {
       lastNameValue: "",
       birthValue: "",
       selectValue: "",
+      radioValue: "",
       imageValue: "",
     };
     this.nameRef = React.createRef();
     this.lastNameRef = React.createRef();
     this.birthRef = React.createRef();
     this.selecteRef = React.createRef();
+    this.femaleRadioRef = React.createRef();
+    this.maleRadioRef = React.createRef();
+    this.otherRadioRef = React.createRef();
     this.imageRef = React.createRef();
+    this.formRef = React.createRef();
   }
 
   setDataStates = () => {
@@ -48,14 +58,28 @@ class Form extends React.Component<FormProps, FormState> {
       lastNameValue: this.lastNameRef.current?.value || "",
       birthValue: this.birthRef.current?.value || "",
       selectValue: this.selecteRef.current?.value || "",
+      radioValue: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
+        .filter((ref) => ref.current?.checked)
+        .map((ref) => ref.current?.value)
+        .join(""),
       imageValue: this.imageRef.current?.value || "",
     });
-    console.log(this.nameRef.current?.value);
+  };
+
+  handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    this.formRef.current?.reset();
+    console.log(this.state.nameValue);
+    console.log(this.state.lastNameValue);
+    console.log(this.state.birthValue);
+    console.log(this.state.selectValue);
+    console.log(this.state.radioValue);
+    console.log(this.state.imageValue);
   };
 
   render() {
     return (
-      <form className="form">
+      <form className="form" onSubmit={this.handleSubmit} ref={this.formRef}>
         <div className="form__wrapper">
           <TextInput
             propRef={this.nameRef}
@@ -82,11 +106,11 @@ class Form extends React.Component<FormProps, FormState> {
             handleChange={this.setDataStates}
           />
         </div>
-        <div className="radio-input-wrapper">
-          <RadioInput name="Female" />
-          <RadioInput name="Male" />
-          <RadioInput name="Other" />
-        </div>
+        <fieldset className="radio-input-wrapper">
+          <RadioInput propRef={this.femaleRadioRef} name="Female" />
+          <RadioInput propRef={this.maleRadioRef} name="Male" />
+          <RadioInput propRef={this.otherRadioRef} name="Other" />
+        </fieldset>
         <FileInput
           propRef={this.imageRef}
           defaultValue={this.state.imageValue}
@@ -94,7 +118,7 @@ class Form extends React.Component<FormProps, FormState> {
         />
         <CheckboxInput label="I consent to the processing of my personal data" />
         <CheckboxInput label="I agree with the privacy policy" />
-        <SubmitInput disabled={true} handleClick={this.props.handleSubmit} />
+        <SubmitInput disabled={false} handleClick={this.props.handleSubmit} />
       </form>
     );
   }

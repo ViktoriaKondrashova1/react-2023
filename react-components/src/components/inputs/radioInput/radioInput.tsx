@@ -3,6 +3,7 @@ import "./radioInput.scss";
 
 interface radioInputProps {
   name: string;
+  propRef: React.RefObject<HTMLInputElement>;
 }
 
 class RadioInput extends React.Component<radioInputProps> {
@@ -16,6 +17,7 @@ class RadioInput extends React.Component<radioInputProps> {
           type="radio"
           name="gender"
           className="radio-input"
+          ref={this.props.propRef}
           value={this.props.name}
           id={this.props.name}
           required
