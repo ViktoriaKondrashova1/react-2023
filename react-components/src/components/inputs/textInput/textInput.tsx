@@ -1,23 +1,14 @@
 import React from "react";
-import "./baseInput.scss";
+import "./textInput.scss";
 
-interface baseInputProps {
+interface textInputProps {
   name: string;
-  type: string;
   propRef: React.RefObject<HTMLInputElement>;
   defaultValue: string;
-  max?: string;
-  accept?: string;
-  className?: string;
-  handleChange?: () => void;
+  handleChange: () => void;
 }
 
-class BaseInput extends React.Component<baseInputProps> {
-  classes: string;
-  constructor(props: baseInputProps) {
-    super(props);
-    this.classes = `${"input-form__input"} ${this.props.className}`;
-  }
+class TextInput extends React.Component<textInputProps> {
   render() {
     return (
       <label htmlFor={this.props.name} className="input-form__label">
@@ -28,12 +19,10 @@ class BaseInput extends React.Component<baseInputProps> {
         <br />
         <input
           ref={this.props.propRef}
-          type={this.props.type}
+          type="text"
           name={this.props.name}
           defaultValue={this.props.defaultValue}
-          className={this.classes}
-          max={this.props.max}
-          accept={this.props.accept}
+          className="input-form__input"
           onChange={this.props.handleChange}
           required
         />
@@ -42,4 +31,4 @@ class BaseInput extends React.Component<baseInputProps> {
   }
 }
 
-export default BaseInput;
+export default TextInput;

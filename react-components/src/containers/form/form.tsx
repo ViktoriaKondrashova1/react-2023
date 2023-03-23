@@ -1,6 +1,8 @@
 import React from "react";
-import BaseInput from "../../components/inputs/baseInput/baseInput";
+import TextInput from "../../components/inputs/textInput/textInput";
+import DateInput from "../../components/inputs/dateInput/dateInput";
 import SelectInput from "../../components/inputs/selectInput/selectInput";
+import FileInput from "../../components/inputs/fileInput/fileInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import Button from "../../components/button/button";
@@ -50,42 +52,33 @@ class Form extends React.Component<FormProps, FormState> {
     return (
       <div className="form">
         <div className="form__wrapper">
-          <BaseInput
+          <TextInput
             propRef={this.nameRef}
             name="first-name"
-            type="text"
             handleChange={this.setDataStates}
             defaultValue={this.state.nameValue}
           />
-          <BaseInput
+          <TextInput
             propRef={this.lastNameRef}
             name="last-name"
-            type="text"
             defaultValue={this.state.lastNameValue}
             handleChange={this.setDataStates}
           />
         </div>
         <div className="form__wrapper">
-          <BaseInput
-            name="date-of-birth"
-            type="date"
-            max={new Date().toISOString().split("T")[0]}
+          <DateInput
             propRef={this.birthRef}
             defaultValue={this.state.birthValue}
             handleChange={this.setDataStates}
           />
-          <SelectInput name="place-of-residence" />
+          <SelectInput />
         </div>
         <form className="radio-input-form">
           <RadioInput name="Female" />
           <RadioInput name="Male" />
           <RadioInput name="Other" />
         </form>
-        <BaseInput
-          name="user-image"
-          type="file"
-          accept="image/png, image/jpg, image/gif, image/jpeg"
-          className="file-input"
+        <FileInput
           propRef={this.imageRef}
           defaultValue={this.state.imageValue}
           handleChange={this.setDataStates}
