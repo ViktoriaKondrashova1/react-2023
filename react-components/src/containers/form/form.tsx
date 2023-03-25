@@ -10,6 +10,7 @@ import "./form.scss";
 
 interface FormProps {
   handleSubmit?: () => void;
+  userCardList: object[];
 }
 
 interface FormState {
@@ -19,18 +20,22 @@ interface FormState {
   selectValue: string;
   radioValue: string;
   imageValue: string;
+  checkboxValue: (string | undefined)[];
 }
 
 class Form extends React.Component<FormProps, FormState> {
-  private nameRef: React.RefObject<HTMLInputElement>;
-  private lastNameRef: React.RefObject<HTMLInputElement>;
-  private birthRef: React.RefObject<HTMLInputElement>;
-  private selecteRef: React.RefObject<HTMLSelectElement>;
-  private femaleRadioRef: React.RefObject<HTMLInputElement>;
-  private maleRadioRef: React.RefObject<HTMLInputElement>;
-  private otherRadioRef: React.RefObject<HTMLInputElement>;
-  private imageRef: React.RefObject<HTMLInputElement>;
-  private formRef: React.RefObject<HTMLFormElement>;
+  nameRef: React.RefObject<HTMLInputElement>;
+  lastNameRef: React.RefObject<HTMLInputElement>;
+  birthRef: React.RefObject<HTMLInputElement>;
+  selecteRef: React.RefObject<HTMLSelectElement>;
+  femaleRadioRef: React.RefObject<HTMLInputElement>;
+  maleRadioRef: React.RefObject<HTMLInputElement>;
+  otherRadioRef: React.RefObject<HTMLInputElement>;
+  imageRef: React.RefObject<HTMLInputElement>;
+  checkboxDataRef: React.RefObject<HTMLInputElement>;
+  checkboxPolicyRef: React.RefObject<HTMLInputElement>;
+  formRef: React.RefObject<HTMLFormElement>;
+
   constructor(props: FormProps) {
     super(props);
     this.state = {
@@ -40,6 +45,7 @@ class Form extends React.Component<FormProps, FormState> {
       selectValue: "",
       radioValue: "",
       imageValue: "",
+      checkboxValue: [],
     };
     this.nameRef = React.createRef();
     this.lastNameRef = React.createRef();
@@ -49,6 +55,8 @@ class Form extends React.Component<FormProps, FormState> {
     this.maleRadioRef = React.createRef();
     this.otherRadioRef = React.createRef();
     this.imageRef = React.createRef();
+    this.checkboxDataRef = React.createRef();
+    this.checkboxPolicyRef = React.createRef();
     this.formRef = React.createRef();
   }
 
@@ -63,18 +71,23 @@ class Form extends React.Component<FormProps, FormState> {
         .map((ref) => ref.current?.value)
         .join(""),
       imageValue: this.imageRef.current?.value || "",
+      checkboxValue: [this.checkboxDataRef, this.checkboxPolicyRef]
+        .filter((ref) => ref.current?.checked)
+        .map((ref) => ref.current?.value),
     });
   };
 
   handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
+    this.props.userCardList.push({
+      name: this.state.nameValue,
+      lastName: this.state.lastNameValue,
+      birthDate: this.state.birthValue,
+      country: this.state.selectValue,
+      gender: this.state.radioValue,
+      image: "",
+    });
     this.formRef.current?.reset();
-    console.log(this.state.nameValue);
-    console.log(this.state.lastNameValue);
-    console.log(this.state.birthValue);
-    console.log(this.state.selectValue);
-    console.log(this.state.radioValue);
-    console.log(this.state.imageValue);
   };
 
   render() {
@@ -116,8 +129,16 @@ class Form extends React.Component<FormProps, FormState> {
           defaultValue={this.state.imageValue}
           handleChange={this.setDataStates}
         />
-        <CheckboxInput label="I consent to the processing of my personal data" />
-        <CheckboxInput label="I agree with the privacy policy" />
+        <CheckboxInput
+          label="I consent to the processing of my personal data"
+          propRef={this.checkboxDataRef}
+          handleChange={this.setDataStates}
+        />
+        <CheckboxInput
+          label="I agree with the privacy policy"
+          propRef={this.checkboxPolicyRef}
+          handleChange={this.setDataStates}
+        />
         <SubmitInput disabled={false} handleClick={this.props.handleSubmit} />
       </form>
     );

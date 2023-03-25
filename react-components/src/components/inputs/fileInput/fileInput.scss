@@ -1,4 +1,6 @@
 .file-input {
+  width: 100%;
+
   &::-webkit-file-upload-button {
     visibility: hidden;
   }
