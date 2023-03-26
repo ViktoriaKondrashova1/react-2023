@@ -60,32 +60,39 @@ class Form extends React.Component<FormProps, FormState> {
   }
 
   setDataStates = () => {
-    this.setState({
-      nameValue: this.nameRef.current?.value || "",
-      lastNameValue: this.lastNameRef.current?.value || "",
-      birthValue: this.birthRef.current?.value || "",
-      selectValue: this.selecteRef.current?.value || "",
-      radioValue: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
-        .filter((ref) => ref.current?.checked)
-        .map((ref) => ref.current?.value)
-        .join(""),
-      imageValue: this.imageRef.current?.value || "",
-      checkboxValue: [this.checkboxDataRef, this.checkboxPolicyRef]
-        .filter((ref) => ref.current?.checked)
-        .map((ref) => ref.current?.value),
-    });
+    // this.setState({
+    //   nameValue: this.nameRef.current?.value || "",
+    //   lastNameValue: this.lastNameRef.current?.value || "",
+    //   birthValue: this.birthRef.current?.value || "",
+    //   selectValue: this.selecteRef.current?.value || "",
+    //   radioValue: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
+    //     .filter((ref) => ref.current?.checked)
+    //     .map((ref) => ref.current?.value)
+    //     .join(""),
+    //   imageValue: this.imageRef?.current?.files
+    //     ? URL.createObjectURL(this.imageRef.current.files[0])
+    //     : "",
+    //   checkboxValue: [this.checkboxDataRef, this.checkboxPolicyRef]
+    //     .filter((ref) => ref.current?.checked)
+    //     .map((ref) => ref.current?.value),
+    // });
   };
 
   handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     this.props.handleSubmit([
       {
-        name: this.state.nameValue,
-        lastName: this.state.lastNameValue,
-        birthDate: this.state.birthValue,
-        country: this.state.selectValue,
-        gender: this.state.radioValue,
-        image: "",
+        name: this.nameRef.current?.value || "",
+        lastName: this.lastNameRef.current?.value || "",
+        birthDate: this.birthRef.current?.value || "",
+        country: this.selecteRef.current?.value || "",
+        gender: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
+          .filter((ref) => ref.current?.checked)
+          .map((ref) => ref.current?.value)
+          .join(""),
+        image: this.imageRef?.current?.files
+          ? URL.createObjectURL(this.imageRef.current.files[0])
+          : "",
       },
     ]);
     event.currentTarget.reset();
