@@ -7,25 +7,8 @@ import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import SubmitInput from "../../components/inputs/submitInput/submitInput";
 import SubmitMessage from "../../components/submitMessage/submitMessage";
-import { userCardProps } from "../../components/userCard/userCard";
+import { FormProps, FormState } from "../../types";
 import "./form.scss";
-
-interface FormProps {
-  handleSubmit: (value: userCardProps[]) => void;
-  userCardList: userCardProps[];
-}
-
-interface FormState {
-  isFormValid: boolean;
-  isOpen: boolean;
-  nameError: boolean;
-  lastNameError: boolean;
-  birthError: boolean;
-  countryError: boolean;
-  genderError: boolean;
-  imageError: boolean;
-  checkError: boolean;
-}
 
 class Form extends React.Component<FormProps, FormState> {
   nameRef: React.RefObject<HTMLInputElement>;
@@ -106,7 +89,7 @@ class Form extends React.Component<FormProps, FormState> {
         genderError: true,
       });
     }
-    if (!this.imageRef?.current?.files) {
+    if (!this.imageRef.current?.files) {
       this.setState({
         imageError: true,
       });

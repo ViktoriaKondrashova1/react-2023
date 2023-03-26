@@ -1,14 +1,6 @@
 import React from "react";
+import { userCardProps } from "../../types";
 import "./userCard.scss";
-
-export interface userCardProps {
-  name: string;
-  lastName: string;
-  birthDate: string;
-  country: string;
-  gender: string;
-  image: string;
-}
 
 class UserCard extends React.Component<userCardProps> {
   render() {

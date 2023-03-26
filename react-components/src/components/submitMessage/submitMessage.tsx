@@ -1,9 +1,6 @@
 import React from "react";
+import { submitMessageProps } from "../../types";
 import "./submitMessage.scss";
-
-interface submitMessageProps {
-  open: boolean;
-}
 
 class SubmitMessage extends React.Component<submitMessageProps> {
   render() {

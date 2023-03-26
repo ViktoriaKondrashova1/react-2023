@@ -1,11 +1,6 @@
 import React from "react";
+import { textInputProps } from "../../../types";
 import "./textInput.scss";
-
-interface textInputProps {
-  name: string;
-  propRef: React.RefObject<HTMLInputElement>;
-  showError: boolean;
-}
 
 class TextInput extends React.Component<textInputProps> {
   render() {

@@ -1,10 +1,6 @@
 import React from "react";
+import { selectInputProps } from "../../../types";
 import "../textInput/textInput.scss";
-
-interface selectInputProps {
-  propRef: React.RefObject<HTMLSelectElement>;
-  showError: boolean;
-}
 
 class SelectInput extends React.Component<selectInputProps> {
   countries: string[];

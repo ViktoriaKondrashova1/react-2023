@@ -1,16 +1,8 @@
 import React from "react";
 import Form from "../../containers/form/form";
 import UserCard from "../../components/userCard/userCard";
-import { userCardProps } from "../../components/userCard/userCard";
+import { FormPageProps, FormPageState } from "../../types";
 import "./formPage.scss";
-
-type FormPageProps = {
-  [key: string]: never;
-};
-
-interface FormPageState {
-  userCardList: userCardProps[];
-}
 
 class FormPage extends React.Component<FormPageProps, FormPageState> {
   constructor(props: FormPageProps) {

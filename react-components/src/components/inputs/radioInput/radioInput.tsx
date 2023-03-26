@@ -1,10 +1,6 @@
 import React from "react";
+import { radioInputProps } from "../../../types";
 import "./radioInput.scss";
-
-interface radioInputProps {
-  name: string;
-  propRef: React.RefObject<HTMLInputElement>;
-}
 
 class RadioInput extends React.Component<radioInputProps> {
   constructor(props: radioInputProps) {

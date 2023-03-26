@@ -1,10 +1,6 @@
 import React from "react";
+import { submitInputProps } from "../../../types";
 import "./submitInput.scss";
-
-interface submitInputProps {
-  disabled?: boolean;
-  handleClick: () => void;
-}
 
 class SubmitInput extends React.Component<submitInputProps> {
   render() {

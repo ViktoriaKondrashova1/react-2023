@@ -1,12 +1,8 @@
 import React from "react";
+import { InputProps } from "../../../types";
 import "../textInput/textInput.scss";
 
-interface dateInputProps {
-  propRef: React.RefObject<HTMLInputElement>;
-  showError: boolean;
-}
-
-class DateInput extends React.Component<dateInputProps> {
+class DateInput extends React.Component<InputProps> {
   render() {
     return (
       <label htmlFor="date-of-birth" className="input-form__label">

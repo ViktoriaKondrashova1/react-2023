@@ -1,13 +1,9 @@
 import React from "react";
+import { InputProps } from "../../../types";
 import "../textInput/textInput.scss";
 import "./fileInput.scss";
 
-interface fileInputProps {
-  propRef: React.RefObject<HTMLInputElement>;
-  showError: boolean;
-}
-
-class FileInput extends React.Component<fileInputProps> {
+class FileInput extends React.Component<InputProps> {
   render() {
     return (
       <label htmlFor="user-image" className="input-form__label">
