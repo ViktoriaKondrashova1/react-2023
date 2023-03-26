@@ -99,7 +99,6 @@ class Form extends React.Component<FormProps, FormState> {
       !this.state.imageError &&
       !this.state.checkError
     ) {
-      console.log("here");
       this.setState({
         isFormValid: true,
       });
