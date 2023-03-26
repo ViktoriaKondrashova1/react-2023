@@ -80,7 +80,6 @@ class Form extends React.Component<FormProps, FormState> {
     if (!radioValue) {
       this.setState({ genderError: true });
     }
-    console.log(this.imageRef.current?.files);
     if (
       this.imageRef.current?.files &&
       this.imageRef.current?.files.length === 0
