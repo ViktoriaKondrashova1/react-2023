@@ -3,7 +3,7 @@ import "../textInput/textInput.scss";
 
 interface selectInputProps {
   propRef: React.RefObject<HTMLSelectElement>;
-  handleChange?: () => void;
+  showError: boolean;
 }
 
 class SelectInput extends React.Component<selectInputProps> {
@@ -28,8 +28,6 @@ class SelectInput extends React.Component<selectInputProps> {
           name="place-of-residence"
           className="input-form__input"
           ref={this.props.propRef}
-          onChange={this.props.handleChange}
-          required
         >
           <option value="" hidden>
             Choose country
@@ -42,6 +40,9 @@ class SelectInput extends React.Component<selectInputProps> {
             );
           })}
         </select>
+        {this.props.showError ? (
+          <p className="form__error">Choose your country</p>
+        ) : null}
       </label>
     );
   }

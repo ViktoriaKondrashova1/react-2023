@@ -16,14 +16,15 @@ interface FormProps {
 }
 
 interface FormState {
-  nameValue: string;
-  lastNameValue: string;
-  birthValue: string;
-  selectValue: string;
-  radioValue: string;
-  imageValue: string;
-  checkboxValue: (string | undefined)[];
+  isFormValid: boolean;
   isOpen: boolean;
+  nameError: boolean;
+  lastNameError: boolean;
+  birthError: boolean;
+  countryError: boolean;
+  genderError: boolean;
+  imageError: boolean;
+  checkError: boolean;
 }
 
 class Form extends React.Component<FormProps, FormState> {
@@ -35,20 +36,20 @@ class Form extends React.Component<FormProps, FormState> {
   maleRadioRef: React.RefObject<HTMLInputElement>;
   otherRadioRef: React.RefObject<HTMLInputElement>;
   imageRef: React.RefObject<HTMLInputElement>;
-  checkboxDataRef: React.RefObject<HTMLInputElement>;
-  checkboxPolicyRef: React.RefObject<HTMLInputElement>;
+  checkboxRef: React.RefObject<HTMLInputElement>;
 
   constructor(props: FormProps) {
     super(props);
     this.state = {
-      nameValue: "",
-      lastNameValue: "",
-      birthValue: "",
-      selectValue: "",
-      radioValue: "",
-      imageValue: "",
-      checkboxValue: [],
+      isFormValid: false,
       isOpen: false,
+      nameError: false,
+      lastNameError: false,
+      birthError: false,
+      countryError: false,
+      genderError: false,
+      imageError: false,
+      checkError: false,
     };
     this.nameRef = React.createRef();
     this.lastNameRef = React.createRef();
@@ -58,47 +59,116 @@ class Form extends React.Component<FormProps, FormState> {
     this.maleRadioRef = React.createRef();
     this.otherRadioRef = React.createRef();
     this.imageRef = React.createRef();
-    this.checkboxDataRef = React.createRef();
-    this.checkboxPolicyRef = React.createRef();
+    this.checkboxRef = React.createRef();
   }
 
-  setDataStates = () => {
-    // this.setState({
-    //   nameValue: this.nameRef.current?.value || "",
-    //   lastNameValue: this.lastNameRef.current?.value || "",
-    //   birthValue: this.birthRef.current?.value || "",
-    //   selectValue: this.selecteRef.current?.value || "",
-    //   radioValue: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
-    //     .filter((ref) => ref.current?.checked)
-    //     .map((ref) => ref.current?.value)
-    //     .join(""),
-    //   imageValue: this.imageRef?.current?.files
-    //     ? URL.createObjectURL(this.imageRef.current.files[0])
-    //     : "",
-    //   checkboxValue: [this.checkboxDataRef, this.checkboxPolicyRef]
-    //     .filter((ref) => ref.current?.checked)
-    //     .map((ref) => ref.current?.value),
-    // });
+  showErrors = () => {
+    const nameValue = this.nameRef.current?.value;
+    const lastNameValue = this.lastNameRef.current?.value;
+    const radioValue = [
+      this.femaleRadioRef,
+      this.maleRadioRef,
+      this.otherRadioRef,
+    ]
+      .filter((ref) => ref.current?.checked)
+      .map((ref) => ref.current?.value)
+      .join("");
+    if (
+      !nameValue ||
+      nameValue.length < 3 ||
+      nameValue[0] !== nameValue[0].toUpperCase()
+    ) {
+      this.setState({
+        nameError: true,
+      });
+    }
+    if (
+      !lastNameValue ||
+      lastNameValue.length < 3 ||
+      lastNameValue[0] !== lastNameValue[0].toUpperCase()
+    ) {
+      this.setState({
+        lastNameError: true,
+      });
+    }
+    if (!this.birthRef.current?.value) {
+      this.setState({
+        birthError: true,
+      });
+    }
+    if (!this.selecteRef.current?.value) {
+      this.setState({
+        countryError: true,
+      });
+    }
+    if (!radioValue) {
+      this.setState({
+        genderError: true,
+      });
+    }
+    if (!this.imageRef?.current?.files) {
+      this.setState({
+        imageError: true,
+      });
+    }
+    if (!this.checkboxRef.current?.checked) {
+      this.setState({
+        checkError: true,
+      });
+    }
+    if (
+      !this.state.nameError &&
+      !this.state.lastNameError &&
+      !this.state.birthError &&
+      !this.state.countryError &&
+      !this.state.genderError &&
+      !this.state.imageError &&
+      !this.state.checkError
+    ) {
+      console.log("here");
+      this.setState({
+        isFormValid: true,
+      });
+    }
+  };
+
+  hideErrors = () => {
+    this.setState({
+      nameError: false,
+      lastNameError: false,
+      birthError: false,
+      countryError: false,
+      genderError: false,
+      imageError: false,
+      checkError: false,
+    });
   };
 
   handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    this.props.handleSubmit([
-      {
-        name: this.nameRef.current?.value || "",
-        lastName: this.lastNameRef.current?.value || "",
-        birthDate: this.birthRef.current?.value || "",
-        country: this.selecteRef.current?.value || "",
-        gender: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
-          .filter((ref) => ref.current?.checked)
-          .map((ref) => ref.current?.value)
-          .join(""),
-        image: this.imageRef?.current?.files
-          ? URL.createObjectURL(this.imageRef.current.files[0])
-          : "",
-      },
-    ]);
-    event.currentTarget.reset();
+    this.showErrors();
+    if (this.state.isFormValid) {
+      this.props.handleSubmit([
+        {
+          name: this.nameRef.current?.value || "",
+          lastName: this.lastNameRef.current?.value || "",
+          birthDate: this.birthRef.current?.value || "",
+          country: this.selecteRef.current?.value || "",
+          gender: [this.femaleRadioRef, this.maleRadioRef, this.otherRadioRef]
+            .filter((ref) => ref.current?.checked)
+            .map((ref) => ref.current?.value)
+            .join(""),
+          image: this.imageRef?.current?.files
+            ? URL.createObjectURL(this.imageRef.current.files[0])
+            : "",
+        },
+      ]);
+      this.hideErrors();
+      event.currentTarget.reset();
+      this.setState({
+        isFormValid: false,
+      });
+    }
   };
 
   handleFormReset = () => {
@@ -124,22 +194,22 @@ class Form extends React.Component<FormProps, FormState> {
           <TextInput
             propRef={this.nameRef}
             name="first-name"
-            handleChange={this.setDataStates}
+            showError={this.state.nameError}
           />
           <TextInput
             propRef={this.lastNameRef}
             name="last-name"
-            handleChange={this.setDataStates}
+            showError={this.state.lastNameError}
           />
         </div>
         <div className="form__wrapper">
           <DateInput
             propRef={this.birthRef}
-            handleChange={this.setDataStates}
+            showError={this.state.birthError}
           />
           <SelectInput
             propRef={this.selecteRef}
-            handleChange={this.setDataStates}
+            showError={this.state.countryError}
           />
         </div>
         <fieldset className="radio-input-wrapper">
@@ -147,16 +217,14 @@ class Form extends React.Component<FormProps, FormState> {
           <RadioInput propRef={this.maleRadioRef} name="Male" />
           <RadioInput propRef={this.otherRadioRef} name="Other" />
         </fieldset>
-        <FileInput propRef={this.imageRef} handleChange={this.setDataStates} />
+        {this.state.genderError ? (
+          <p className="form__error">Choose your gender</p>
+        ) : null}
+        <FileInput propRef={this.imageRef} showError={this.state.imageError} />
         <CheckboxInput
           label="I consent to the processing of my personal data"
-          propRef={this.checkboxDataRef}
-          handleChange={this.setDataStates}
-        />
-        <CheckboxInput
-          label="I agree with the privacy policy"
-          propRef={this.checkboxPolicyRef}
-          handleChange={this.setDataStates}
+          propRef={this.checkboxRef}
+          showError={this.state.checkError}
         />
         <SubmitInput
           disabled={false}

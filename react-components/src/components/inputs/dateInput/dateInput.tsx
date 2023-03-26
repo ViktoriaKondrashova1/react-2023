@@ -3,7 +3,7 @@ import "../textInput/textInput.scss";
 
 interface dateInputProps {
   propRef: React.RefObject<HTMLInputElement>;
-  handleChange: () => void;
+  showError: boolean;
 }
 
 class DateInput extends React.Component<dateInputProps> {
@@ -18,9 +18,10 @@ class DateInput extends React.Component<dateInputProps> {
           name="date-of-birth"
           className="input-form__input"
           max={new Date().toISOString().split("T")[0]}
-          onChange={this.props.handleChange}
-          required
         />
+        {this.props.showError ? (
+          <p className="form__error">Choose your date of birth</p>
+        ) : null}
       </label>
     );
   }

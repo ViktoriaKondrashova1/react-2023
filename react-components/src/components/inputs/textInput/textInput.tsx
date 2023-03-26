@@ -4,7 +4,7 @@ import "./textInput.scss";
 interface textInputProps {
   name: string;
   propRef: React.RefObject<HTMLInputElement>;
-  handleChange: () => void;
+  showError: boolean;
 }
 
 class TextInput extends React.Component<textInputProps> {
@@ -21,9 +21,12 @@ class TextInput extends React.Component<textInputProps> {
           type="text"
           name={this.props.name}
           className="input-form__input"
-          onChange={this.props.handleChange}
-          required
         />
+        {this.props.showError ? (
+          <p className="form__error">
+            Value should start with uppercase and be at least 3 chars
+          </p>
+        ) : null}
       </label>
     );
   }
