@@ -56,48 +56,39 @@ class Form extends React.Component<FormProps, FormState> {
       .filter((ref) => ref.current?.checked)
       .map((ref) => ref.current?.value)
       .join("");
+
     if (
       !nameValue ||
       nameValue.length < 3 ||
       nameValue[0] !== nameValue[0].toUpperCase()
     ) {
-      this.setState({
-        nameError: true,
-      });
+      this.setState({ nameError: true });
     }
     if (
       !lastNameValue ||
       lastNameValue.length < 3 ||
       lastNameValue[0] !== lastNameValue[0].toUpperCase()
     ) {
-      this.setState({
-        lastNameError: true,
-      });
+      this.setState({ lastNameError: true });
     }
     if (!this.birthRef.current?.value) {
-      this.setState({
-        birthError: true,
-      });
+      this.setState({ birthError: true });
     }
     if (!this.selecteRef.current?.value) {
-      this.setState({
-        countryError: true,
-      });
+      this.setState({ countryError: true });
     }
     if (!radioValue) {
-      this.setState({
-        genderError: true,
-      });
+      this.setState({ genderError: true });
     }
-    if (!this.imageRef.current?.files) {
-      this.setState({
-        imageError: true,
-      });
+    console.log(this.imageRef.current?.files);
+    if (
+      this.imageRef.current?.files &&
+      this.imageRef.current?.files.length === 0
+    ) {
+      this.setState({ imageError: true });
     }
     if (!this.checkboxRef.current?.checked) {
-      this.setState({
-        checkError: true,
-      });
+      this.setState({ checkError: true });
     }
     if (
       !this.state.nameError &&
@@ -141,7 +132,7 @@ class Form extends React.Component<FormProps, FormState> {
             .filter((ref) => ref.current?.checked)
             .map((ref) => ref.current?.value)
             .join(""),
-          image: this.imageRef?.current?.files
+          image: this.imageRef.current?.files
             ? URL.createObjectURL(this.imageRef.current.files[0])
             : "",
         },
