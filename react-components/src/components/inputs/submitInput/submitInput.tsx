@@ -3,7 +3,7 @@ import "./submitInput.scss";
 
 interface submitInputProps {
   disabled?: boolean;
-  handleClick?: () => void;
+  handleClick: () => void;
 }
 
 class SubmitInput extends React.Component<submitInputProps> {

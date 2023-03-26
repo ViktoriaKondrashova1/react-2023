@@ -6,11 +6,12 @@ import FileInput from "../../components/inputs/fileInput/fileInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import SubmitInput from "../../components/inputs/submitInput/submitInput";
+import { userCardProps } from "../../components/userCard/userCard";
 import "./form.scss";
 
 interface FormProps {
-  handleSubmit?: () => void;
-  userCardList: object[];
+  handleSubmit: (value: userCardProps[]) => void;
+  userCardList: userCardProps[];
 }
 
 interface FormState {
@@ -79,14 +80,24 @@ class Form extends React.Component<FormProps, FormState> {
 
   handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    this.props.userCardList.push({
-      name: this.state.nameValue,
-      lastName: this.state.lastNameValue,
-      birthDate: this.state.birthValue,
-      country: this.state.selectValue,
-      gender: this.state.radioValue,
-      image: "",
-    });
+    // this.props.userCardList.push({
+    //   name: this.state.nameValue,
+    //   lastName: this.state.lastNameValue,
+    //   birthDate: this.state.birthValue,
+    //   country: this.state.selectValue,
+    //   gender: this.state.radioValue,
+    //   image: "",
+    // });
+    this.props.handleSubmit([
+      {
+        name: this.state.nameValue,
+        lastName: this.state.lastNameValue,
+        birthDate: this.state.birthValue,
+        country: this.state.selectValue,
+        gender: this.state.radioValue,
+        image: "",
+      },
+    ]);
     this.formRef.current?.reset();
   };
 
@@ -139,7 +150,10 @@ class Form extends React.Component<FormProps, FormState> {
           propRef={this.checkboxPolicyRef}
           handleChange={this.setDataStates}
         />
-        <SubmitInput disabled={false} handleClick={this.props.handleSubmit} />
+        <SubmitInput
+          disabled={false}
+          handleClick={() => this.props.handleSubmit}
+        />
       </form>
     );
   }

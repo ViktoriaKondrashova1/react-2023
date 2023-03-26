@@ -19,10 +19,9 @@ class FormPage extends React.Component<FormPageProps, FormPageState> {
       userCardList: [],
     };
   }
-  clickSubmit = () => {
-    console.log("here", this.state.userCardList);
+  clickSubmit = (value: FormPageState["userCardList"]) => {
     this.setState({
-      userCardList: this.state.userCardList,
+      userCardList: [...this.state.userCardList, ...value],
     });
   };
   render() {
@@ -32,7 +31,7 @@ class FormPage extends React.Component<FormPageProps, FormPageState> {
           <h1 className="form-page__title">Fill in the form</h1>
           <Form
             userCardList={this.state.userCardList}
-            handleSubmit={this.clickSubmit}
+            handleSubmit={(value) => this.clickSubmit(value)}
           />
           <div className="form-page__user-cards">
             {this.state.userCardList.map((item, index) => {
