@@ -6,6 +6,7 @@ import FileInput from "../../components/inputs/fileInput/fileInput";
 import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import SubmitInput from "../../components/inputs/submitInput/submitInput";
+import SubmitMessage from "../../components/submitMessage/submitMessage";
 import { userCardProps } from "../../components/userCard/userCard";
 import "./form.scss";
 
@@ -22,6 +23,7 @@ interface FormState {
   radioValue: string;
   imageValue: string;
   checkboxValue: (string | undefined)[];
+  isOpen: boolean;
 }
 
 class Form extends React.Component<FormProps, FormState> {
@@ -46,6 +48,7 @@ class Form extends React.Component<FormProps, FormState> {
       radioValue: "",
       imageValue: "",
       checkboxValue: [],
+      isOpen: false,
     };
     this.nameRef = React.createRef();
     this.lastNameRef = React.createRef();
@@ -99,7 +102,15 @@ class Form extends React.Component<FormProps, FormState> {
   };
 
   handleFormReset = () => {
-    console.log("The form has been reset");
+    this.setState({
+      isOpen: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        isOpen: false,
+      });
+    }, 1000);
   };
 
   render() {
@@ -151,6 +162,7 @@ class Form extends React.Component<FormProps, FormState> {
           disabled={false}
           handleClick={() => this.props.handleSubmit}
         />
+        <SubmitMessage open={this.state.isOpen} />
       </form>
     );
   }

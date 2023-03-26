@@ -20,7 +20,6 @@ class RadioInput extends React.Component<radioInputProps> {
           ref={this.props.propRef}
           value={this.props.name}
           id={this.props.name}
-          required
         />
         <label htmlFor={this.props.name} className="radio-input__label">
           {this.props.name}
