@@ -4,7 +4,6 @@ import "./textInput.scss";
 interface textInputProps {
   name: string;
   propRef: React.RefObject<HTMLInputElement>;
-  defaultValue: string;
   handleChange: () => void;
 }
 
@@ -21,7 +20,6 @@ class TextInput extends React.Component<textInputProps> {
           ref={this.props.propRef}
           type="text"
           name={this.props.name}
-          defaultValue={this.props.defaultValue}
           className="input-form__input"
           onChange={this.props.handleChange}
           required

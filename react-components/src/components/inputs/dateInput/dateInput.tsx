@@ -3,7 +3,6 @@ import "../textInput/textInput.scss";
 
 interface dateInputProps {
   propRef: React.RefObject<HTMLInputElement>;
-  defaultValue: string;
   handleChange: () => void;
 }
 
@@ -17,7 +16,6 @@ class DateInput extends React.Component<dateInputProps> {
           ref={this.props.propRef}
           type="date"
           name="date-of-birth"
-          defaultValue={this.props.defaultValue}
           className="input-form__input"
           max={new Date().toISOString().split("T")[0]}
           onChange={this.props.handleChange}

@@ -4,7 +4,6 @@ import "./fileInput.scss";
 
 interface fileInputProps {
   propRef: React.RefObject<HTMLInputElement>;
-  defaultValue: string;
   handleChange: () => void;
 }
 
@@ -18,7 +17,6 @@ class FileInput extends React.Component<fileInputProps> {
           ref={this.props.propRef}
           type="file"
           name="user-image"
-          defaultValue={this.props.defaultValue}
           className="input-form__input file-input"
           accept="image/png, image/jpg, image/gif, image/jpeg"
           onChange={this.props.handleChange}

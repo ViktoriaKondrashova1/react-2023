@@ -35,7 +35,6 @@ class Form extends React.Component<FormProps, FormState> {
   imageRef: React.RefObject<HTMLInputElement>;
   checkboxDataRef: React.RefObject<HTMLInputElement>;
   checkboxPolicyRef: React.RefObject<HTMLInputElement>;
-  formRef: React.RefObject<HTMLFormElement>;
 
   constructor(props: FormProps) {
     super(props);
@@ -58,7 +57,6 @@ class Form extends React.Component<FormProps, FormState> {
     this.imageRef = React.createRef();
     this.checkboxDataRef = React.createRef();
     this.checkboxPolicyRef = React.createRef();
-    this.formRef = React.createRef();
   }
 
   setDataStates = () => {
@@ -80,14 +78,6 @@ class Form extends React.Component<FormProps, FormState> {
 
   handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // this.props.userCardList.push({
-    //   name: this.state.nameValue,
-    //   lastName: this.state.lastNameValue,
-    //   birthDate: this.state.birthValue,
-    //   country: this.state.selectValue,
-    //   gender: this.state.radioValue,
-    //   image: "",
-    // });
     this.props.handleSubmit([
       {
         name: this.state.nameValue,
@@ -98,35 +88,39 @@ class Form extends React.Component<FormProps, FormState> {
         image: "",
       },
     ]);
-    this.formRef.current?.reset();
+    event.currentTarget.reset();
+  };
+
+  handleFormReset = () => {
+    console.log("The form has been reset");
   };
 
   render() {
     return (
-      <form className="form" onSubmit={this.handleSubmit} ref={this.formRef}>
+      <form
+        className="form"
+        onSubmit={this.handleSubmit}
+        onReset={this.handleFormReset}
+      >
         <div className="form__wrapper">
           <TextInput
             propRef={this.nameRef}
             name="first-name"
             handleChange={this.setDataStates}
-            defaultValue={this.state.nameValue}
           />
           <TextInput
             propRef={this.lastNameRef}
             name="last-name"
-            defaultValue={this.state.lastNameValue}
             handleChange={this.setDataStates}
           />
         </div>
         <div className="form__wrapper">
           <DateInput
             propRef={this.birthRef}
-            defaultValue={this.state.birthValue}
             handleChange={this.setDataStates}
           />
           <SelectInput
             propRef={this.selecteRef}
-            defaultValue={this.state.selectValue}
             handleChange={this.setDataStates}
           />
         </div>
@@ -135,11 +129,7 @@ class Form extends React.Component<FormProps, FormState> {
           <RadioInput propRef={this.maleRadioRef} name="Male" />
           <RadioInput propRef={this.otherRadioRef} name="Other" />
         </fieldset>
-        <FileInput
-          propRef={this.imageRef}
-          defaultValue={this.state.imageValue}
-          handleChange={this.setDataStates}
-        />
+        <FileInput propRef={this.imageRef} handleChange={this.setDataStates} />
         <CheckboxInput
           label="I consent to the processing of my personal data"
           propRef={this.checkboxDataRef}

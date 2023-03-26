@@ -3,7 +3,6 @@ import "../textInput/textInput.scss";
 
 interface selectInputProps {
   propRef: React.RefObject<HTMLSelectElement>;
-  defaultValue: string;
   handleChange?: () => void;
 }
 
@@ -29,7 +28,6 @@ class SelectInput extends React.Component<selectInputProps> {
           name="place-of-residence"
           className="input-form__input"
           ref={this.props.propRef}
-          defaultValue={this.props.defaultValue}
           onChange={this.props.handleChange}
           required
         >
