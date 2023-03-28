@@ -67,3 +67,13 @@ export interface submitInputProps {
 export interface submitMessageProps {
   open: boolean;
 }
+
+export interface cardProps {
+  title: string;
+  author: string;
+  image: string;
+  link: string;
+  time: number;
+  veg: boolean;
+  raiting: number;
+}
