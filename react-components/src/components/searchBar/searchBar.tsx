@@ -1,43 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./searchBar.scss";
 
-interface SearchBarState {
-  value: string;
-}
+const SearchBar: React.FC = () => {
+  const [value, setValue] = useState<string>(
+    localStorage.getItem("search") || ""
+  );
 
-type SearchBarProps = {
-  [key: string]: never;
-};
-
-class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  constructor(props: SearchBarProps) {
-    super(props);
-    this.state = {
-      value: localStorage.getItem("search") || "",
-    };
-  }
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: event.target.value });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
   };
-  componentWillUnmount(): void {
-    localStorage.setItem("search", this.state.value);
-  }
-  render() {
-    return (
-      <div className="search">
-        <input
-          type="search"
-          className="search__input"
-          placeholder="Search..."
-          defaultValue={this.state.value}
-          onChange={this.handleChange}
-        />
-        <button type="submit" className="search__btn">
-          Search
-        </button>
-      </div>
-    );
-  }
-}
+
+  useEffect(() => {
+    localStorage.setItem("search", value);
+  }, [value]);
+
+  return (
+    <div className="search">
+      <input
+        type="search"
+        className="search__input"
+        placeholder="Search..."
+        defaultValue={value}
+        onChange={handleChange}
+      />
+      <button type="submit" className="search__btn">
+        Search
+      </button>
+    </div>
+  );
+};
 
 export default SearchBar;
