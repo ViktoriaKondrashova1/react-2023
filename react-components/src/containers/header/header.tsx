@@ -3,16 +3,19 @@ import Navigation from "../../components/navigation/navigation";
 import "./header.scss";
 
 const Header: React.FC = () => {
+  const pages = {
+    "/": "MAIN",
+    "/about": "ABOUT",
+    "/form": " FORM",
+  };
+
   const [title, setTitle] = useState<string>(
-    location.pathname === "/" ? "MAIN PAGE" : ""
+    pages[location.pathname as keyof object]
+      ? `${pages[location.pathname as keyof object]} PAGE`
+      : ""
   );
 
   const updateTitle = () => {
-    const pages = {
-      "/": "MAIN",
-      "/about": "ABOUT",
-      "/form": " FORM",
-    };
     const titleName = pages[location.pathname as keyof object]
       ? `${pages[location.pathname as keyof object]} PAGE`
       : "";
