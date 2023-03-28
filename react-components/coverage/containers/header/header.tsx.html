@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/inputs/textInput/textInput.tsx</title>
+    <title>Code coverage report for containers/header/header.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">components/inputs/textInput</a> textInput.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">containers/header</a> header.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.28% </span>
+                <span class="strong">96.87% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/28</span>
+                <span class='fraction'>31/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.28% </span>
+                <span class="strong">96.87% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/28</span>
+                <span class='fraction'>31/32</span>
             </div>
         
             
@@ -91,18 +91,20 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -111,42 +113,52 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import { textInputProps } from "../../../types";
-import "./textInput.scss";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
+import Navigation from "../../components/navigation/navigation";
+import "./header.scss";
 &nbsp;
-const TextInput: React.FC&lt;textInputProps&gt; = (props) =&gt; {
+const Header: React.FC = () =&gt; {
+  const [title, setTitle] = useState&lt;string&gt;(
+    location.pathname === "/" ? "MAIN PAGE" : ""
+  );
+&nbsp;
+  const updateTitle = () =&gt; {
+    const pages = {
+      "/": "MAIN",
+      "/about": "ABOUT",
+      "/form": " FORM",
+    };
+    const titleName = pages[location.pathname as keyof object]
+      ? `${pages[location.pathname as keyof object<span class="branch-0 cbranch-no" title="branch not covered" >]} PAGE`</span>
+<span class="cstat-no" title="statement not covered" >      : "";</span>
+    setTitle(titleName);
+  };
+&nbsp;
   return (
-    &lt;label htmlFor={props.name} className="input-form__label"&gt;
-      {props.name
-        .split("-")
-        .map((word) =&gt; word[0].toUpperCase() + word.substring(1))
-        .join(" ")}
-      &lt;br /&gt;
-      &lt;input
-        ref={props.propRef}
-        type="text"
-        name={props.name}
-        className="input-form__input"
-      /&gt;
-      {props.<span class="branch-0 cbranch-no" title="branch not covered" >showError ? (</span>
-<span class="cstat-no" title="statement not covered" >        &lt;p className="form__error"&gt;</span>
-<span class="cstat-no" title="statement not covered" >          Value should start with uppercase and be at least 3 chars</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/p&gt;</span>
-      ) : null}
-    &lt;/label&gt;
+    &lt;header className="header"&gt;
+      &lt;div className="container header__container"&gt;
+        &lt;Navigation handleClick={updateTitle} /&gt;
+        &lt;h1 className="header__title"&gt;{title}&lt;/h1&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
   );
 };
 &nbsp;
-export default TextInput;
+export default Header;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -156,14 +168,14 @@ export default TextInput;
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-03-28T13:04:37.172Z
             </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

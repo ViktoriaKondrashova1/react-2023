@@ -7,14 +7,6 @@ export interface userCardProps {
   image: string;
 }
 
-export type FormPageProps = {
-  [key: string]: never;
-};
-
-export interface FormPageState {
-  userCardList: userCardProps[];
-}
-
 export interface FormProps {
   handleSubmit: (value: userCardProps[]) => void;
   userCardList: userCardProps[];
