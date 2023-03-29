@@ -9,7 +9,6 @@ const FileInput: React.FC<InputProps> = (props) => {
       User Image
       <br />
       <input
-        ref={props.propRef}
         type="file"
         name="user-image"
         className="input-form__input file-input"

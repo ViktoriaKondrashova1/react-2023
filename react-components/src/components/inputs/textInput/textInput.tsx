@@ -10,12 +10,7 @@ const TextInput: React.FC<textInputProps> = (props) => {
         .map((word) => word[0].toUpperCase() + word.substring(1))
         .join(" ")}
       <br />
-      <input
-        ref={props.propRef}
-        type="text"
-        name={props.name}
-        className="input-form__input"
-      />
+      <input type="text" name={props.name} className="input-form__input" />
       {props.showError ? (
         <p className="form__error">
           Value should start with uppercase and be at least 3 chars

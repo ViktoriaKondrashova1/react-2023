@@ -9,7 +9,6 @@ const RadioInput: React.FC<radioInputProps> = (props) => {
         type="radio"
         name="gender"
         className="radio-input"
-        ref={props.propRef}
         value={props.name}
         id={props.name}
       />

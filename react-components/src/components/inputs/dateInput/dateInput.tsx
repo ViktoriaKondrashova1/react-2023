@@ -8,7 +8,6 @@ const DateInput: React.FC<InputProps> = (props) => {
       Date of Birth
       <br />
       <input
-        ref={props.propRef}
         type="date"
         name="date-of-birth"
         className="input-form__input"

@@ -16,11 +16,7 @@ const SelectInput: React.FC<selectInputProps> = (props) => {
     <label htmlFor="place-of-residence" className="input-form__label">
       Place Of Residence
       <br />
-      <select
-        name="place-of-residence"
-        className="input-form__input"
-        ref={props.propRef}
-      >
+      <select name="place-of-residence" className="input-form__input">
         <option value="" hidden>
           Choose country
         </option>

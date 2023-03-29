@@ -12,42 +12,37 @@ export interface FormProps {
   userCardList: userCardProps[];
 }
 
-export interface FormState {
-  isFormValid: boolean;
-  isOpen: boolean;
-  nameError: boolean;
-  lastNameError: boolean;
-  birthError: boolean;
-  countryError: boolean;
-  genderError: boolean;
-  imageError: boolean;
-  checkError: boolean;
-}
+// export interface FormState {
+//   isFormValid: boolean;
+//   isOpen: boolean;
+//   nameError: boolean;
+//   lastNameError: boolean;
+//   birthError: boolean;
+//   countryError: boolean;
+//   genderError: boolean;
+//   imageError: boolean;
+//   checkError: boolean;
+// }
 
 export interface textInputProps {
   name: string;
-  propRef: React.RefObject<HTMLInputElement>;
   showError: boolean;
 }
 
 export interface CheckboxInputProps {
   label: string;
-  propRef: React.RefObject<HTMLInputElement>;
   showError: boolean;
 }
 
 export interface InputProps {
-  propRef: React.RefObject<HTMLInputElement>;
   showError: boolean;
 }
 
 export interface radioInputProps {
   name: string;
-  propRef: React.RefObject<HTMLInputElement>;
 }
 
 export interface selectInputProps {
-  propRef: React.RefObject<HTMLSelectElement>;
   showError: boolean;
 }
 
