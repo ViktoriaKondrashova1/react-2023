@@ -130,7 +130,7 @@ class Form extends React.Component<FormProps, FormState> {
             .filter((ref) => ref.current?.checked)
             .map((ref) => ref.current?.value)
             .join(""),
-          image: this.imageRef.current?.files
+          image: this.imageRef.current?.files?.length
             ? URL.createObjectURL(this.imageRef.current.files[0])
             : "",
         },
