@@ -12,7 +12,10 @@ import { FormProps } from "../../types";
 import "./form.scss";
 
 const Form: React.FC<FormProps> = (props) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FieldValues>({
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
+  });
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -34,32 +37,23 @@ const Form: React.FC<FormProps> = (props) => {
       onReset={handleFormReset}
     >
       <div className="form__wrapper">
-        <TextInput
-          {...register("firstName")}
-          name="first-name"
-          showError={false}
-        />
-        <TextInput
-          {...register("lastName")}
-          name="last-name"
-          showError={false}
-        />
+        <TextInput register={register} name="first-name" />
+        <TextInput register={register} name="last-name" />
       </div>
       <div className="form__wrapper">
-        <DateInput {...register("date")} showError={false} />
-        <SelectInput {...register("select")} showError={false} />
+        <DateInput register={register} />
+        <SelectInput register={register} />
       </div>
       <fieldset className="radio-input-wrapper">
-        <RadioInput {...register("radio")} name="Female" />
-        <RadioInput {...register("radio")} name="Male" />
-        <RadioInput {...register("radio")} name="Other" />
+        <RadioInput register={register} name="Female" />
+        <RadioInput register={register} name="Male" />
+        <RadioInput register={register} name="Other" />
       </fieldset>
       {false ? <p className="form__error">Choose your gender</p> : null}
-      <FileInput {...register("image")} showError={false} />
+      <FileInput register={register} />
       <CheckboxInput
-        label="I consent to the processing of my personal data"
-        {...register("checkbox")}
-        showError={false}
+        name="I consent to the processing of my personal data"
+        register={register}
       />
       <SubmitInput disabled={false} handleClick={() => props.handleSubmit} />
       <SubmitMessage open={isOpen} />
@@ -67,19 +61,7 @@ const Form: React.FC<FormProps> = (props) => {
   );
 };
 
-// comment
-
 // class Form extends React.Component<FormProps, FormState> {
-//   nameRef: React.RefObject<HTMLInputElement>;
-//   lastNameRef: React.RefObject<HTMLInputElement>;
-//   birthRef: React.RefObject<HTMLInputElement>;
-//   selecteRef: React.RefObject<HTMLSelectElement>;
-//   femaleRadioRef: React.RefObject<HTMLInputElement>;
-//   maleRadioRef: React.RefObject<HTMLInputElement>;
-//   otherRadioRef: React.RefObject<HTMLInputElement>;
-//   imageRef: React.RefObject<HTMLInputElement>;
-//   checkboxRef: React.RefObject<HTMLInputElement>;
-
 //   constructor(props: FormProps) {
 //     super(props);
 //     this.state = {
@@ -93,15 +75,6 @@ const Form: React.FC<FormProps> = (props) => {
 //       imageError: false,
 //       checkError: false,
 //     };
-//     this.nameRef = React.createRef();
-//     this.lastNameRef = React.createRef();
-//     this.birthRef = React.createRef();
-//     this.selecteRef = React.createRef();
-//     this.femaleRadioRef = React.createRef();
-//     this.maleRadioRef = React.createRef();
-//     this.otherRadioRef = React.createRef();
-//     this.imageRef = React.createRef();
-//     this.checkboxRef = React.createRef();
 //   }
 
 //   showErrors = () => {
@@ -201,19 +174,6 @@ const Form: React.FC<FormProps> = (props) => {
 //       });
 //     }
 //   };
-
-//   handleFormReset = () => {
-//     this.setState({
-//       isOpen: true,
-//     });
-
-//     setTimeout(() => {
-//       this.setState({
-//         isOpen: false,
-//       });
-//     }, 1000);
-//   };
-
 //   render() {
 //     return (
 //       <form

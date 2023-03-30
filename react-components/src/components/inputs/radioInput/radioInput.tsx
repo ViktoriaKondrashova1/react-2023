@@ -1,11 +1,12 @@
 import React from "react";
-import { radioInputProps } from "../../../types";
+import { InputProps } from "../../../types";
 import "./radioInput.scss";
 
-const RadioInput: React.FC<radioInputProps> = (props) => {
+const RadioInput: React.FC<InputProps> = (props) => {
   return (
     <>
       <input
+        {...props.register("gender")}
         type="radio"
         name="gender"
         className="radio-input"

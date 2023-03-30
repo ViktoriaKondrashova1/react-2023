@@ -1,8 +1,8 @@
 import React from "react";
-import { selectInputProps } from "../../../types";
+import { InputProps } from "../../../types";
 import "../textInput/textInput.scss";
 
-const SelectInput: React.FC<selectInputProps> = (props) => {
+const SelectInput: React.FC<InputProps> = (props) => {
   const countries = [
     "Belarus",
     "Ukraine",
@@ -22,15 +22,15 @@ const SelectInput: React.FC<selectInputProps> = (props) => {
         </option>
         {countries.map((country, index) => {
           return (
-            <option value={country} key={index}>
+            <option value={country} key={index} {...props.register("country")}>
               {country}
             </option>
           );
         })}
       </select>
-      {props.showError ? (
+      {/* {props.showError ? (
         <p className="form__error">Choose your country</p>
-      ) : null}
+      ) : null} */}
     </label>
   );
 };
