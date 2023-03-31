@@ -20,7 +20,7 @@ export interface userCardProps {
 // }
 
 export interface FormProps {
-  handleSubmit: (value: userCardProps[]) => void;
+  updateCards: (value: userCardProps[]) => void;
   userCardList: userCardProps[];
 }
 
@@ -31,7 +31,6 @@ export interface InputProps {
 
 export interface submitInputProps {
   disabled?: boolean;
-  handleClick: () => void;
 }
 
 export interface submitMessageProps {

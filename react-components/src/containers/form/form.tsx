@@ -21,6 +21,17 @@ const Form: React.FC<FormProps> = (props) => {
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
+    props.updateCards([
+      {
+        name: data.firstName || "",
+        lastName: data.lastName || "",
+        birthDate: data.date || "",
+        country: data.country || "",
+        gender: data.gender || "",
+        image:
+          data.image.length !== 0 ? URL.createObjectURL(data.image[0]) : "",
+      },
+    ]);
   };
 
   const handleFormReset = () => {
@@ -55,7 +66,7 @@ const Form: React.FC<FormProps> = (props) => {
         name="I consent to the processing of my personal data"
         register={register}
       />
-      <SubmitInput disabled={false} handleClick={() => props.handleSubmit} />
+      <SubmitInput disabled={false} />
       <SubmitMessage open={isOpen} />
     </form>
   );

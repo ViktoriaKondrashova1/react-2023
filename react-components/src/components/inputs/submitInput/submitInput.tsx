@@ -8,7 +8,6 @@ const SubmitInput: React.FC<submitInputProps> = (props) => {
       type="submit"
       className="input-form__submit"
       value="Submit"
-      onClick={props.handleClick}
       disabled={props.disabled}
     />
   );

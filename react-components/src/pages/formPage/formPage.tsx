@@ -17,7 +17,7 @@ const FormPage: React.FC = () => {
         <h1 className="form-page__title">Fill in the form</h1>
         <Form
           userCardList={userCardList}
-          handleSubmit={(value) => clickSubmit(value)}
+          updateCards={(value) => clickSubmit(value)}
         />
         <div className="form-page__user-cards">
           {userCardList.map((item, index) => {
