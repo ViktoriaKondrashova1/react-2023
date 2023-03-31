@@ -10,14 +10,16 @@ const FileInput: React.FC<InputProps> = (props) => {
       <br />
       <input
         type="file"
-        {...props.register("file")}
+        {...props.register("file", {
+          required: "Image is required",
+        })}
         name="file"
         className="input-form__input file-input"
         accept="image/png, image/jpg, image/gif, image/jpeg"
       />
-      {/* {props.showError ? (
-        <p className="form__error">Choose profile image</p>
-      ) : null} */}
+      {props.errors.file && (
+        <p className="form__error">{props.errors.file.message}</p>
+      )}
     </label>
   );
 };

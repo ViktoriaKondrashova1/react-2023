@@ -65,7 +65,7 @@ const Form: React.FC<FormProps> = (props) => {
         <RadioInput register={register} errors={errors} name="Male" />
         <RadioInput register={register} errors={errors} name="Other" />
       </fieldset>
-      {false ? <p className="form__error">Choose your gender</p> : null}
+      {errors.gender && <p className="form__error">{errors.gender.message}</p>}
       <FileInput register={register} errors={errors} />
       <CheckboxInput
         name="I consent to the processing of my personal data"

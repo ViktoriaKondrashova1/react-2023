@@ -6,7 +6,9 @@ const RadioInput: React.FC<InputProps> = (props) => {
   return (
     <>
       <input
-        {...props.register("gender")}
+        {...props.register("gender", {
+          required: "Gender is required",
+        })}
         type="radio"
         name="gender"
         className="radio-input"

@@ -22,15 +22,21 @@ const SelectInput: React.FC<InputProps> = (props) => {
         </option>
         {countries.map((country, index) => {
           return (
-            <option value={country} key={index} {...props.register("country")}>
+            <option
+              value={country}
+              key={index}
+              {...props.register("country", {
+                required: "Country is required",
+              })}
+            >
               {country}
             </option>
           );
         })}
       </select>
-      {/* {props.showError ? (
-        <p className="form__error">Choose your country</p>
-      ) : null} */}
+      {props.errors.country && (
+        <p className="form__error">{props.errors.country.message}</p>
+      )}
     </label>
   );
 };

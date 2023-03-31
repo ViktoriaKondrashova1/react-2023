@@ -9,14 +9,16 @@ const DateInput: React.FC<InputProps> = (props) => {
       <br />
       <input
         type="date"
-        {...props.register("date")}
+        {...props.register("date", {
+          required: "Date of Birth is required",
+        })}
         name="date"
         className="input-form__input"
         max={new Date().toISOString().split("T")[0]}
       />
-      {/* {props.showError ? (
-        <p className="form__error">Choose your date of birth</p>
-      ) : null} */}
+      {props.errors.date && (
+        <p className="form__error">{props.errors.date.message}</p>
+      )}
     </label>
   );
 };
