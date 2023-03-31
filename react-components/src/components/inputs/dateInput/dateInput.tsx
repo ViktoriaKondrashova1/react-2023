@@ -4,13 +4,13 @@ import "../textInput/textInput.scss";
 
 const DateInput: React.FC<InputProps> = (props) => {
   return (
-    <label htmlFor="date-of-birth" className="input-form__label">
+    <label htmlFor="date" className="input-form__label">
       Date of Birth
       <br />
       <input
         type="date"
         {...props.register("date")}
-        name="date-of-birth"
+        name="date"
         className="input-form__input"
         max={new Date().toISOString().split("T")[0]}
       />

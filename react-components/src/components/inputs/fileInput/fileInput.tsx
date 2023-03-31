@@ -10,8 +10,8 @@ const FileInput: React.FC<InputProps> = (props) => {
       <br />
       <input
         type="file"
-        {...props.register("image")}
-        name="user-image"
+        {...props.register("file")}
+        name="file"
         className="input-form__input file-input"
         accept="image/png, image/jpg, image/gif, image/jpeg"
       />

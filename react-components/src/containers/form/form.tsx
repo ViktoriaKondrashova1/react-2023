@@ -28,8 +28,7 @@ const Form: React.FC<FormProps> = (props) => {
         birthDate: data.date,
         country: data.country,
         gender: data.gender,
-        image:
-          data.image!.length !== 0 ? URL.createObjectURL(data.image![0]) : "",
+        image: URL.createObjectURL(data.file![0]),
       },
     ]);
     reset();

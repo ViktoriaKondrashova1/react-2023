@@ -15,7 +15,7 @@ export interface FormInputs {
   date: string;
   country: string;
   gender: string;
-  image: FileList | null;
+  file: FileList | null;
   checkbox: boolean;
 }
 
