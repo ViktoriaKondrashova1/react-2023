@@ -1,4 +1,4 @@
-import { UseFormRegister } from "react-hook-form";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 export interface userCardProps {
   name: string;
@@ -27,6 +27,7 @@ export interface FormProps {
 export interface InputProps {
   name?: string;
   register: UseFormRegister<FormInputs>;
+  errors: FieldErrors<FormInputs>;
 }
 
 export interface submitInputProps {

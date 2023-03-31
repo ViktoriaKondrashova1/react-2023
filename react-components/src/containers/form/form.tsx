@@ -12,7 +12,12 @@ import { FormProps, FormInputs } from "../../types";
 import "./form.scss";
 
 const Form: React.FC<FormProps> = (props) => {
-  const { register, handleSubmit, reset } = useForm<FormInputs>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormInputs>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
@@ -48,23 +53,24 @@ const Form: React.FC<FormProps> = (props) => {
       onReset={handleFormReset}
     >
       <div className="form__wrapper">
-        <TextInput register={register} name="firstName" />
-        <TextInput register={register} name="lastName" />
+        <TextInput register={register} errors={errors} name="firstName" />
+        <TextInput register={register} errors={errors} name="lastName" />
       </div>
       <div className="form__wrapper">
-        <DateInput register={register} />
-        <SelectInput register={register} />
+        <DateInput register={register} errors={errors} />
+        <SelectInput register={register} errors={errors} />
       </div>
       <fieldset className="radio-input-wrapper">
-        <RadioInput register={register} name="Female" />
-        <RadioInput register={register} name="Male" />
-        <RadioInput register={register} name="Other" />
+        <RadioInput register={register} errors={errors} name="Female" />
+        <RadioInput register={register} errors={errors} name="Male" />
+        <RadioInput register={register} errors={errors} name="Other" />
       </fieldset>
       {false ? <p className="form__error">Choose your gender</p> : null}
-      <FileInput register={register} />
+      <FileInput register={register} errors={errors} />
       <CheckboxInput
         name="I consent to the processing of my personal data"
         register={register}
+        errors={errors}
       />
       <SubmitInput disabled={false} />
       <SubmitMessage open={isOpen} />

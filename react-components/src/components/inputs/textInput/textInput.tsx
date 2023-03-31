@@ -11,15 +11,19 @@ const TextInput: React.FC<InputProps> = (props) => {
       <br />
       <input
         type="text"
-        {...props.register(props.name!)}
+        {...props.register(props.name!, {
+          required: "Value is required",
+          minLength: { value: 3, message: "Value should be at least 3 chars" },
+          validate: (value: string) =>
+            value[0] === value[0].toUpperCase() ||
+            "Value should start with uppercase",
+        })}
         name={props.name}
         className="input-form__input"
       />
-      {/* {props.showError ? (
-        <p className="form__error">
-          Value should start with uppercase and be at least 3 chars
-        </p>
-      ) : null} */}
+      {props.errors.firstName && (
+        <p className="form__error">{props.errors.firstName.message}</p>
+      )}
     </label>
   );
 };
