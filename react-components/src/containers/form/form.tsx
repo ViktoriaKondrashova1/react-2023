@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import TextInput from "../../components/inputs/textInput/textInput";
 import DateInput from "../../components/inputs/dateInput/dateInput";
 import SelectInput from "../../components/inputs/selectInput/selectInput";
@@ -8,30 +8,31 @@ import RadioInput from "../../components/inputs/radioInput/radioInput";
 import CheckboxInput from "../../components/inputs/checkboxInput/checkboxInput";
 import SubmitInput from "../../components/inputs/submitInput/submitInput";
 import SubmitMessage from "../../components/submitMessage/submitMessage";
-import { FormProps } from "../../types";
+import { FormProps, FormInputs } from "../../types";
 import "./form.scss";
 
 const Form: React.FC<FormProps> = (props) => {
-  const { register, handleSubmit } = useForm<FieldValues>({
+  const { register, handleSubmit, reset } = useForm<FormInputs>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const onSubmit = (data: FieldValues) => {
+  const onSubmit = (data: FormInputs) => {
     console.log(data);
     props.updateCards([
       {
-        name: data.firstName || "",
-        lastName: data.lastName || "",
-        birthDate: data.date || "",
-        country: data.country || "",
-        gender: data.gender || "",
+        name: data.firstName,
+        lastName: data.lastName,
+        birthDate: data.date,
+        country: data.country,
+        gender: data.gender,
         image:
-          data.image.length !== 0 ? URL.createObjectURL(data.image[0]) : "",
+          data.image!.length !== 0 ? URL.createObjectURL(data.image![0]) : "",
       },
     ]);
+    reset();
   };
 
   const handleFormReset = () => {

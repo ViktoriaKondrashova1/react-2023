@@ -8,8 +8,8 @@ const DateInput: React.FC<InputProps> = (props) => {
       Date of Birth
       <br />
       <input
-        {...props.register("date")}
         type="date"
+        {...props.register("date")}
         name="date-of-birth"
         className="input-form__input"
         max={new Date().toISOString().split("T")[0]}

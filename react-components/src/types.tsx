@@ -1,4 +1,4 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 
 export interface userCardProps {
   name: string;
@@ -9,15 +9,15 @@ export interface userCardProps {
   image: string;
 }
 
-// export interface FormInputs {
-//   firstName: string;
-//   lastName: string;
-//   date: Date;
-//   country: string;
-//   gender: string;
-//   image: FileList;
-//   checkbox: boolean;
-// }
+export interface FormInputs {
+  firstName: string;
+  lastName: string;
+  date: string;
+  country: string;
+  gender: string;
+  image: FileList | null;
+  checkbox: boolean;
+}
 
 export interface FormProps {
   updateCards: (value: userCardProps[]) => void;
@@ -26,7 +26,7 @@ export interface FormProps {
 
 export interface InputProps {
   name?: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<FormInputs>;
 }
 
 export interface submitInputProps {
