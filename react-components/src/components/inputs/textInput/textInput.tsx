@@ -5,10 +5,9 @@ import "./textInput.scss";
 const TextInput: React.FC<InputProps> = (props) => {
   return (
     <label htmlFor={props.name} className="input-form__label">
-      {props
-        .name!.split("-")
-        .map((word) => word[0].toUpperCase() + word.substring(1))
-        .join(" ")}
+      {(props.name![0].toUpperCase() + props.name!.slice(1))
+        .split("N")
+        .join(" N")}
       <br />
       <input
         type="text"

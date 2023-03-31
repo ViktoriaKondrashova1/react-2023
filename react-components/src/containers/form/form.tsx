@@ -48,8 +48,8 @@ const Form: React.FC<FormProps> = (props) => {
       onReset={handleFormReset}
     >
       <div className="form__wrapper">
-        <TextInput register={register} name="first-name" />
-        <TextInput register={register} name="last-name" />
+        <TextInput register={register} name="firstName" />
+        <TextInput register={register} name="lastName" />
       </div>
       <div className="form__wrapper">
         <DateInput register={register} />
