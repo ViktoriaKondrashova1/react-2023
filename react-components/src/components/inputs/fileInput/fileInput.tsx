@@ -12,6 +12,10 @@ const FileInput = <T extends FieldValues>(props: InputProps<T>) => {
         type="file"
         {...props.register(props.name, {
           required: "Image is required",
+          validate: (files: FileList) =>
+            ["image/jpeg", "image/jpg", "image/png", "image/gif"].includes(
+              files[0]?.type
+            ) || "Only PNG, JPEG, JPG and GIF are accepted",
         })}
         name={props.name}
         className="input-form__input file-input"

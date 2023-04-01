@@ -25,7 +25,6 @@ const Form = (props: FormProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onSubmit = (data: FormInputs) => {
-    console.log(data);
     props.updateCards([
       {
         name: data.firstName,
