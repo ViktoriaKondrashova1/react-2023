@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./searchBar.scss";
 
-const SearchBar: React.FC = () => {
+const SearchBar = () => {
   const [value, setValue] = useState<string>(
     localStorage.getItem("search") || ""
   );

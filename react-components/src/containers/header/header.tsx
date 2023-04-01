@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navigation from "../../components/navigation/navigation";
 import "./header.scss";
 
-const Header: React.FC = () => {
-  const pages = {
-    "/": "MAIN",
-    "/about": "ABOUT",
-    "/form": " FORM",
-  };
+export const pages = {
+  "/": "Main",
+  "/about": "About us",
+  "/form": "Form",
+};
 
+const Header = () => {
   const [title, setTitle] = useState<string>(
     pages[location.pathname as keyof object]
-      ? `${pages[location.pathname as keyof object]} PAGE`
+      ? `${pages[location.pathname as keyof object]} Page`
       : ""
   );
 
   const updateTitle = () => {
-    const titleName = pages[location.pathname as keyof object]
-      ? `${pages[location.pathname as keyof object]} PAGE`
-      : "";
-    setTitle(titleName);
+    setTitle(`${pages[location.pathname as keyof object]} Page`);
   };
 
   return (

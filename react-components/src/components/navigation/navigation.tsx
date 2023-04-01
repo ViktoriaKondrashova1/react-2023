@@ -1,24 +1,22 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
+import { pages } from "../../containers/header/header";
 import "./navigation.scss";
 
 interface NavigationProps {
   handleClick: () => void;
 }
 
-const Navigation: React.FC<NavigationProps> = (props) => {
+const Navigation = (props: NavigationProps) => {
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <li className="nav__item" onClick={props.handleClick}>
-          <NavLink to="/">Main</NavLink>
-        </li>
-        <li className="nav__item" onClick={props.handleClick}>
-          <NavLink to="/about">About Us</NavLink>
-        </li>
-        <li className="nav__item" onClick={props.handleClick}>
-          <NavLink to="/form">Form</NavLink>
-        </li>
+        {Object.values(pages).map((page, index) => {
+          return (
+            <li className="nav__item" onClick={props.handleClick} key={index}>
+              <NavLink to={Object.keys(pages)[index]}>{page}</NavLink>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

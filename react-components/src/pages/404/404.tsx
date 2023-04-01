@@ -1,7 +1,6 @@
-import React from "react";
 import "./404.scss";
 
-const Page404: React.FC = () => {
+const Page404 = () => {
   return (
     <div className="page404">
       <div className="container">

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Form from "../../containers/form/form";
 import UserCard from "../../components/userCard/userCard";
 import { UserCardProps } from "../../types";
 import "./formPage.scss";
 
-const FormPage: React.FC = () => {
+const FormPage = () => {
   const [userCardList, setUserCardList] = useState<UserCardProps[]>([]);
 
   const clickSubmit = (value: UserCardProps[]) => {

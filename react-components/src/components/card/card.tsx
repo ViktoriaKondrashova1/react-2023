@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { cardProps } from "../../types";
 import "./card.scss";
 
-const Card: React.FC<cardProps> = (props) => {
+const Card = (props: cardProps) => {
   const vegClass = props.veg === true ? "card__veg" : "card__meat";
 
   return (

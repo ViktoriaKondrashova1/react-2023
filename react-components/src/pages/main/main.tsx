@@ -1,10 +1,9 @@
-import React from "react";
 import SearchBar from "../../components/searchBar/searchBar";
 import Card from "../../components/card/card";
 import data from "../../assets/data.json";
 import "./main.scss";
 
-const Main: React.FC = () => {
+const Main = () => {
   return (
     <div className="main">
       <div className="container">
