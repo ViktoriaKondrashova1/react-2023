@@ -1,23 +1,25 @@
-import React from "react";
+import { FieldValues } from "react-hook-form";
 import { InputProps } from "../../../types";
 import "../textInput/textInput.scss";
 
-const DateInput: React.FC<InputProps> = (props) => {
+const DateInput = <T extends FieldValues>(props: InputProps<T>) => {
   return (
-    <label htmlFor="date" className="input-form__label">
+    <label htmlFor={props.name} className="input-form__label">
       Date of Birth
       <br />
       <input
         type="date"
-        {...props.register("date", {
-          required: "Date of Birth is required",
+        {...props.register(props.name, {
+          required: "Date of birth is required",
         })}
-        name="date"
+        name={props.name}
         className="input-form__input"
         max={new Date().toISOString().split("T")[0]}
       />
-      {props.errors.date && (
-        <p className="form__error">{props.errors.date.message}</p>
+      {props.errors[props.name] && (
+        <p className="form__error">
+          {props.errors[props.name]?.message?.toString()}
+        </p>
       )}
     </label>
   );

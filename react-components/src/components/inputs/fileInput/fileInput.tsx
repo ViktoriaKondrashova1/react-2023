@@ -1,24 +1,26 @@
-import React from "react";
+import { FieldValues } from "react-hook-form";
 import { InputProps } from "../../../types";
 import "../textInput/textInput.scss";
 import "./fileInput.scss";
 
-const FileInput: React.FC<InputProps> = (props) => {
+const FileInput = <T extends FieldValues>(props: InputProps<T>) => {
   return (
-    <label htmlFor="user-image" className="input-form__label">
+    <label htmlFor={props.name} className="input-form__label">
       User Image
       <br />
       <input
         type="file"
-        {...props.register("file", {
+        {...props.register(props.name, {
           required: "Image is required",
         })}
-        name="file"
+        name={props.name}
         className="input-form__input file-input"
         accept="image/png, image/jpg, image/gif, image/jpeg"
       />
-      {props.errors.file && (
-        <p className="form__error">{props.errors.file.message}</p>
+      {props.errors[props.name] && (
+        <p className="form__error">
+          {props.errors[props.name]?.message?.toString()}
+        </p>
       )}
     </label>
   );

@@ -1,6 +1,11 @@
-import { FieldErrors, UseFormRegister } from "react-hook-form";
+import {
+  FieldErrors,
+  UseFormRegister,
+  FieldValues,
+  Path,
+} from "react-hook-form";
 
-export interface userCardProps {
+export interface UserCardProps {
   name: string;
   lastName: string;
   birthDate: string;
@@ -20,21 +25,22 @@ export interface FormInputs {
 }
 
 export interface FormProps {
-  updateCards: (value: userCardProps[]) => void;
-  userCardList: userCardProps[];
+  updateCards: (value: UserCardProps[]) => void;
+  userCardList: UserCardProps[];
 }
 
-export interface InputProps {
-  name?: string;
-  register: UseFormRegister<FormInputs>;
-  errors: FieldErrors<FormInputs>;
+export interface InputProps<T extends FieldValues> {
+  name: Path<T>;
+  value?: string;
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
 }
 
-export interface submitInputProps {
+export interface SubmitInputProps {
   disabled?: boolean;
 }
 
-export interface submitMessageProps {
+export interface SubmitMessageProps {
   open: boolean;
 }
 

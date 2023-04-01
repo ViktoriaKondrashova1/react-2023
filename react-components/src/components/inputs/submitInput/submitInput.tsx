@@ -1,8 +1,8 @@
 import React from "react";
-import { submitInputProps } from "../../../types";
+import { SubmitInputProps } from "../../../types";
 import "./submitInput.scss";
 
-const SubmitInput: React.FC<submitInputProps> = (props) => {
+const SubmitInput: React.FC<SubmitInputProps> = (props) => {
   return (
     <input
       type="submit"

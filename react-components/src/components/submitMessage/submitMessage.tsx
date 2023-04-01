@@ -1,8 +1,8 @@
 import React from "react";
-import { submitMessageProps } from "../../types";
+import { SubmitMessageProps } from "../../types";
 import "./submitMessage.scss";
 
-const SubmitMessage: React.FC<submitMessageProps> = (props) => {
+const SubmitMessage: React.FC<SubmitMessageProps> = (props) => {
   return !props.open ? null : (
     <p className="submit-message">The form has been submitted!</p>
   );

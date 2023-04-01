@@ -1,22 +1,22 @@
-import React from "react";
+import { FieldValues } from "react-hook-form";
 import { InputProps } from "../../../types";
 import "./radioInput.scss";
 
-const RadioInput: React.FC<InputProps> = (props) => {
+const RadioInput = <T extends FieldValues>(props: InputProps<T>) => {
   return (
     <>
       <input
-        {...props.register("gender", {
+        {...props.register(props.name, {
           required: "Gender is required",
         })}
         type="radio"
-        name="gender"
+        name={props.name}
         className="radio-input"
-        value={props.name}
-        id={props.name}
+        value={props.value}
+        id={props.value}
       />
-      <label htmlFor={props.name} className="radio-input__label">
-        {props.name}
+      <label htmlFor={props.value} className="radio-input__label">
+        {props.value}
       </label>
     </>
   );
