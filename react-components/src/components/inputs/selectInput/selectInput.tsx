@@ -20,8 +20,10 @@ const SelectInput = <T extends FieldValues>(props: InputProps<T>) => {
           required: "Country is required",
         })}
         name={props.name}
+        id={props.name}
         className="input-form__input"
         defaultValue=""
+        data-testid={props.name}
       >
         <option value="" hidden>
           Choose country
@@ -35,7 +37,7 @@ const SelectInput = <T extends FieldValues>(props: InputProps<T>) => {
         })}
       </select>
       {props.errors[props.name] && (
-        <p className="form__error">
+        <p role="alert" className="form__error">
           {props.errors[props.name]?.message?.toString()}
         </p>
       )}

@@ -4,18 +4,20 @@ import "./checkboxInput.scss";
 
 const CheckboxInput = <T extends FieldValues>(props: InputProps<T>) => {
   return (
-    <label htmlFor="checkbox" className="input-form__label">
+    <label htmlFor={props.name} className="input-form__label">
       <input
         {...props.register(props.name, {
           required: "Should be checked",
         })}
         type="checkbox"
-        name="checkbox"
+        name={props.name}
+        id={props.name}
         className="checkbox-input"
+        data-testid={props.name}
       />
       {props.value}
       {props.errors[props.name] && (
-        <p className="form__error">
+        <p role="alert" className="form__error">
           {props.errors[props.name]?.message?.toString()}
         </p>
       )}

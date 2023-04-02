@@ -17,12 +17,14 @@ const FileInput = <T extends FieldValues>(props: InputProps<T>) => {
               files[0]?.type
             ) || "Only PNG, JPEG, JPG and GIF are accepted",
         })}
+        id={props.name}
         name={props.name}
         className="input-form__input file-input"
         accept="image/png, image/jpg, image/gif, image/jpeg"
+        data-testid={props.name}
       />
       {props.errors[props.name] && (
-        <p className="form__error">
+        <p role="alert" className="form__error">
           {props.errors[props.name]?.message?.toString()}
         </p>
       )}

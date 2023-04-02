@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import TextInput from "../../components/inputs/textInput/textInput";
 import DateInput from "../../components/inputs/dateInput/dateInput";
@@ -16,7 +16,7 @@ const Form = (props: FormProps) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormInputs>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
@@ -35,7 +35,6 @@ const Form = (props: FormProps) => {
         image: URL.createObjectURL(data.file![0]),
       },
     ]);
-    reset();
   };
 
   const handleFormReset = () => {
@@ -44,6 +43,12 @@ const Form = (props: FormProps) => {
       setIsOpen(false);
     }, 1000);
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [reset, isSubmitSuccessful]);
 
   return (
     <form
@@ -79,7 +84,11 @@ const Form = (props: FormProps) => {
           name="gender"
         />
       </fieldset>
-      {errors.gender && <p className="form__error">{errors.gender.message}</p>}
+      {errors.gender && (
+        <p role="alert" className="form__error">
+          {errors.gender.message}
+        </p>
+      )}
       <FileInput register={register} errors={errors} name="file" />
       <CheckboxInput
         value="I consent to the processing of my personal data"

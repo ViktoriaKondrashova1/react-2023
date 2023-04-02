@@ -14,6 +14,7 @@ const RadioInput = <T extends FieldValues>(props: InputProps<T>) => {
         className="radio-input"
         value={props.value}
         id={props.value}
+        data-testid={props.value}
       />
       <label htmlFor={props.value} className="radio-input__label">
         {props.value}

@@ -12,12 +12,14 @@ const DateInput = <T extends FieldValues>(props: InputProps<T>) => {
         {...props.register(props.name, {
           required: "Date of birth is required",
         })}
+        id={props.name}
         name={props.name}
         className="input-form__input"
         max={new Date().toISOString().split("T")[0]}
+        data-testid={props.name}
       />
       {props.errors[props.name] && (
-        <p className="form__error">
+        <p role="alert" className="form__error">
           {props.errors[props.name]?.message?.toString()}
         </p>
       )}
