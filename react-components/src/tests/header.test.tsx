@@ -11,7 +11,7 @@ describe("Header component", () => {
     fireEvent.click(aboutLink);
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "ABOUT PAGE"
+      "About Us Page"
     );
   });
 
@@ -23,7 +23,19 @@ describe("Header component", () => {
     fireEvent.click(mainLink);
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "MAIN PAGE"
+      "Main Page"
+    );
+  });
+
+  it("Renders Header of form page", () => {
+    render(<Header />, { wrapper: BrowserRouter });
+
+    const formLink = screen.getByText("Form");
+
+    fireEvent.click(formLink);
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      "Form Page"
     );
   });
 });

@@ -4,7 +4,7 @@ import "./header.scss";
 
 export const pages = {
   "/": "Main",
-  "/about": "About us",
+  "/about": "About Us",
   "/form": "Form",
 };
 
