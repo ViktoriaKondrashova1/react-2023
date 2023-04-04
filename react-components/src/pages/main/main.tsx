@@ -14,7 +14,7 @@ const Main = () => {
     fetch(searchValue ? `${url}?name=${searchValue}` : url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results);
+        // console.log(data.results);
         setSearchResult(data.results);
       });
   }, [searchValue]);

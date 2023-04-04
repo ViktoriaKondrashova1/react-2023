@@ -3,7 +3,9 @@ import { cardListProps } from "../../types";
 import "./cardList.scss";
 
 const CardList = (props: cardListProps) => {
-  return (
+  return !props.data ? (
+    <div className="card-list__error">The cards are not found!</div>
+  ) : (
     <div className="card-list__cards" data-testid="cards-list">
       {props.data.map((item) => {
         return (
