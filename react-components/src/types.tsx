@@ -46,10 +46,11 @@ export interface SubmitMessageProps {
 
 export interface cardProps {
   title: string;
-  author: string;
+  owner: string;
   image: string;
-  link: string;
-  time: number;
-  veg: boolean;
-  raiting: number;
+  id?: string;
+}
+
+export interface cardListProps {
+  data: cardProps[];
 }

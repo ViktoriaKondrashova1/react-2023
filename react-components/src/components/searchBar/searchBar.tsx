@@ -10,6 +10,12 @@ const SearchBar = () => {
     setValue(event.target.value);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      console.log(event.currentTarget.value);
+    }
+  };
+
   useEffect(() => {
     localStorage.setItem("search", value);
   }, [value]);
@@ -22,6 +28,7 @@ const SearchBar = () => {
         placeholder="Search..."
         defaultValue={value}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
       <button type="submit" className="search__btn">
         Search
