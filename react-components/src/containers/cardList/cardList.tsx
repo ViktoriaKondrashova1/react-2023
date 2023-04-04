@@ -8,10 +8,11 @@ const CardList = (props: cardListProps) => {
       {props.data.map((item) => {
         return (
           <Card
-            title={item.title}
+            name={item.name}
             key={item.id}
-            image={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}
-            owner={item.owner}
+            image={item.image}
+            gender={item.gender}
+            status={item.status}
           />
         );
       })}

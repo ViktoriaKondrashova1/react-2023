@@ -45,13 +45,14 @@ export interface SubmitMessageProps {
 }
 
 export interface cardProps {
-  title: string;
-  owner: string;
+  id?: number;
+  name: string;
   image: string;
-  id?: string;
-  farm?: number;
-  server?: string;
-  secret?: string;
+  status: string;
+  gender: string;
+  species?: string;
+  origin?: object;
+  created?: string;
 }
 
 export interface cardListProps {
