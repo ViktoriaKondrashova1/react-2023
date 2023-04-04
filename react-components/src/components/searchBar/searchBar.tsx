@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { searchBarProps } from "../../types";
 import "./searchBar.scss";
 
-const SearchBar = () => {
+const SearchBar = (props: searchBarProps) => {
   const [value, setValue] = useState<string>(
     localStorage.getItem("search") || ""
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.currentTarget.value && event.key === "Enter") {
-      console.log(event.currentTarget.value);
-    }
   };
 
   useEffect(() => {
@@ -28,7 +23,7 @@ const SearchBar = () => {
         placeholder="Search..."
         defaultValue={value}
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        onKeyDown={props.handleKeyDown}
       />
       <button type="submit" className="search__btn">
         Search

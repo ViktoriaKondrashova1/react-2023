@@ -57,3 +57,7 @@ export interface cardProps {
 export interface cardListProps {
   data: cardProps[];
 }
+
+export interface searchBarProps {
+  handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+}
