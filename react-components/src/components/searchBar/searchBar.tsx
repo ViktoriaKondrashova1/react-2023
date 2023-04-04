@@ -25,9 +25,6 @@ const SearchBar = (props: searchBarProps) => {
         onChange={handleChange}
         onKeyDown={props.handleKeyDown}
       />
-      <button type="submit" className="search__btn">
-        Search
-      </button>
     </div>
   );
 };
