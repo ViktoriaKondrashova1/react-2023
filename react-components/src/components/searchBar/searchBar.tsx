@@ -11,7 +11,7 @@ const SearchBar = () => {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
+    if (event.currentTarget.value && event.key === "Enter") {
       console.log(event.currentTarget.value);
     }
   };

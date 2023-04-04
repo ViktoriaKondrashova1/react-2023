@@ -49,6 +49,9 @@ export interface cardProps {
   owner: string;
   image: string;
   id?: string;
+  farm?: number;
+  server?: string;
+  secret?: string;
 }
 
 export interface cardListProps {

@@ -16,7 +16,8 @@
 
   &__info {
     width: 100%;
-    height: 180px;
+    min-height: max-content;
+    height: 120px;
     padding: 10px;
     box-sizing: border-box;
     display: flex;

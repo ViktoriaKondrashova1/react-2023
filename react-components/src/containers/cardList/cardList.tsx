@@ -10,7 +10,7 @@ const CardList = (props: cardListProps) => {
           <Card
             title={item.title}
             key={item.id}
-            image={item.image}
+            image={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}
             owner={item.owner}
           />
         );
