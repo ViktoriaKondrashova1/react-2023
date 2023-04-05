@@ -74,4 +74,5 @@ export interface SearchBarProps {
 export interface ModalProps {
   data: CharacterProps;
   isOpen: boolean;
+  handleClick: () => void;
 }

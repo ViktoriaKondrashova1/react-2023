@@ -3,9 +3,13 @@ import "./modal.scss";
 
 const Modal = (props: ModalProps) => {
   return !props.isOpen ? null : (
-    <div className="modal" data-testid="modal">
-      <div className="modal__container">
-        <button type="button" className="modal__close" />
+    <div className="modal" data-testid="modal" onClick={props.handleClick}>
+      <div className="modal__container" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="modal__close"
+          onClick={props.handleClick}
+        />
         <div className="modal__info-wrapper">
           <img
             src={props.data.image}

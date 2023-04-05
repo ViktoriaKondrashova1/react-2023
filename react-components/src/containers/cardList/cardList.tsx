@@ -23,6 +23,10 @@ const CardList = (props: CardListProps) => {
     setIsOpen(true);
   };
 
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return !props.data ? (
     <div className="card-list__error">The cards are not found!</div>
   ) : (
@@ -38,7 +42,7 @@ const CardList = (props: CardListProps) => {
           />
         );
       })}
-      <Modal data={modalData} isOpen={isOpen} />
+      <Modal data={modalData} isOpen={isOpen} handleClick={closeModal} />
     </div>
   );
 };
