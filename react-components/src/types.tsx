@@ -44,7 +44,7 @@ export interface SubmitMessageProps {
   open: boolean;
 }
 
-export interface cardProps {
+export interface CharacterProps {
   id?: number;
   name: string;
   image: string;
@@ -52,20 +52,26 @@ export interface cardProps {
   species?: string;
   type?: string;
   gender?: string;
-  origin?: string;
-  location?: string;
+  origin?: { name: string; url: string };
+  location?: { name: string; url: string };
   created?: string;
+  episode?: string[];
+  url?: string;
 }
 
-export interface cardListProps {
-  data: cardProps[];
+export interface CardProps extends CharacterProps {
+  handleClick: () => void;
 }
 
-export interface searchBarProps {
+export interface CardListProps {
+  data: CharacterProps[];
+}
+
+export interface SearchBarProps {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-export interface modalProps {
-  data: cardProps;
+export interface ModalProps {
+  data: CharacterProps;
   isOpen: boolean;
 }

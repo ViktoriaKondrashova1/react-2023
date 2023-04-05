@@ -1,7 +1,7 @@
-import { modalProps } from "../../types";
+import { ModalProps } from "../../types";
 import "./modal.scss";
 
-const Modal = (props: modalProps) => {
+const Modal = (props: ModalProps) => {
   return !props.isOpen ? null : (
     <div className="modal" data-testid="modal">
       <div className="modal__container">
@@ -18,8 +18,12 @@ const Modal = (props: modalProps) => {
             <p className="modal__info-item">Species: {props.data.species}</p>
             <p className="modal__info-item">Gender: {props.data.gender}</p>
             <p className="modal__info-item">Type: {props.data.type}</p>
-            <p className="modal__info-item">Origin: {props.data.origin}</p>
-            <p className="modal__info-item">Location: {props.data.location}</p>
+            <p className="modal__info-item">
+              Origin: {props.data.origin!.name}
+            </p>
+            <p className="modal__info-item">
+              Location: {props.data.location!.name}
+            </p>
           </div>
         </div>
       </div>

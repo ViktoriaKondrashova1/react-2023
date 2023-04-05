@@ -1,8 +1,28 @@
+import { useState } from "react";
 import Card from "../../components/card/card";
-import { cardListProps } from "../../types";
+import Modal from "../../components/modal/modal";
+import { CardListProps, CharacterProps } from "../../types";
 import "./cardList.scss";
 
-const CardList = (props: cardListProps) => {
+const CardList = (props: CardListProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [modalData, setModalData] = useState<CharacterProps>({
+    name: "",
+    image: "",
+    status: "",
+    species: "",
+    type: "",
+    gender: "",
+    origin: { name: "", url: "" },
+    location: { name: "", url: "" },
+    created: "",
+  });
+
+  const openModal = (item: CharacterProps) => {
+    setModalData(item);
+    setIsOpen(true);
+  };
+
   return !props.data ? (
     <div className="card-list__error">The cards are not found!</div>
   ) : (
@@ -14,9 +34,11 @@ const CardList = (props: cardListProps) => {
             key={item.id}
             image={item.image}
             status={item.status}
+            handleClick={() => openModal(item)}
           />
         );
       })}
+      <Modal data={modalData} isOpen={isOpen} />
     </div>
   );
 };
