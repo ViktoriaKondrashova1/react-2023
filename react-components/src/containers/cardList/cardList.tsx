@@ -13,7 +13,6 @@ const CardList = (props: cardListProps) => {
             name={item.name}
             key={item.id}
             image={item.image}
-            gender={item.gender}
             status={item.status}
           />
         );

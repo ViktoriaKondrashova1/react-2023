@@ -49,9 +49,11 @@ export interface cardProps {
   name: string;
   image: string;
   status: string;
-  gender: string;
   species?: string;
-  origin?: object;
+  type?: string;
+  gender?: string;
+  origin?: string;
+  location?: string;
   created?: string;
 }
 
@@ -61,4 +63,9 @@ export interface cardListProps {
 
 export interface searchBarProps {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+}
+
+export interface modalProps {
+  data: cardProps;
+  isOpen: boolean;
 }
