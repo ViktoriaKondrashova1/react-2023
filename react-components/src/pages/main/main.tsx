@@ -8,7 +8,9 @@ const url = "https://rickandmortyapi.com/api/character";
 
 const Main = () => {
   const [searchValue, setSearchValue] = useState<string>();
-  const [searchResult, setSearchResult] = useState<CharacterProps[]>([]);
+  const [searchResult, setSearchResult] = useState<CharacterProps[] | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -27,15 +29,17 @@ const Main = () => {
           setError(null);
         })
         .catch((error) => {
-          setError(error);
           setIsLoading(false);
+          setError(error);
         });
     }, 500);
   }, [searchValue]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      setSearchResult(null);
       setIsLoading(true);
+      setError(null);
       setSearchValue(event.currentTarget.value);
     }
   };
@@ -45,7 +49,8 @@ const Main = () => {
       <div className="container">
         <SearchBar handleKeyDown={handleEnter} />
         {isLoading && <div className="main__loading">Progressing...</div>}
-        <CardList data={searchResult} error={error} />
+        {error && <div className="main__error">Error: {error.message}</div>}
+        {searchResult && <CardList data={searchResult} />}
       </div>
     </div>
   );

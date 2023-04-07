@@ -8,17 +8,7 @@ const url = "https://rickandmortyapi.com/api/character";
 
 const CardList = (props: CardListProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [modalData, setModalData] = useState<CharacterProps>({
-    name: "",
-    image: "",
-    status: "",
-    species: "",
-    type: "",
-    gender: "",
-    origin: { name: "", url: "" },
-    location: { name: "", url: "" },
-    created: "",
-  });
+  const [modalData, setModalData] = useState<CharacterProps | null>(null);
 
   const openModal = (id: number | undefined) => {
     fetch(`${url}/${id}`)
@@ -31,11 +21,10 @@ const CardList = (props: CardListProps) => {
 
   const closeModal = () => {
     setIsOpen(false);
+    setModalData(null);
   };
 
-  return props.error ? (
-    <div className="card-list__error">Error: {props.error.message}</div>
-  ) : (
+  return (
     <div className="card-list__cards" data-testid="cards-list">
       {props.data.map((item) => {
         return (
@@ -48,7 +37,9 @@ const CardList = (props: CardListProps) => {
           />
         );
       })}
-      <Modal data={modalData} isOpen={isOpen} handleClick={closeModal} />
+      {modalData && (
+        <Modal data={modalData} isOpen={isOpen} handleClick={closeModal} />
+      )}
     </div>
   );
 };
