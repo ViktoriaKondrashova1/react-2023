@@ -69,6 +69,7 @@ export interface CardListProps {
 
 export interface SearchBarProps {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
 export interface ModalProps {
