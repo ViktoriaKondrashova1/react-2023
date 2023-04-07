@@ -35,6 +35,7 @@ const Main = () => {
 
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      setIsLoading(true);
       setSearchValue(event.currentTarget.value);
     }
   };
