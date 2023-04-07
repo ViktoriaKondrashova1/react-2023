@@ -4,6 +4,8 @@ import Modal from "../../components/modal/modal";
 import { CardListProps, CharacterProps } from "../../types";
 import "./cardList.scss";
 
+const url = "https://rickandmortyapi.com/api/character";
+
 const CardList = (props: CardListProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [modalData, setModalData] = useState<CharacterProps>({
@@ -18,8 +20,12 @@ const CardList = (props: CardListProps) => {
     created: "",
   });
 
-  const openModal = (item: CharacterProps) => {
-    setModalData(item);
+  const openModal = (id: number | undefined) => {
+    fetch(`${url}/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setModalData(data);
+      });
     setIsOpen(true);
   };
 
@@ -38,7 +44,7 @@ const CardList = (props: CardListProps) => {
             key={item.id}
             image={item.image}
             status={item.status}
-            handleClick={() => openModal(item)}
+            handleClick={() => openModal(item.id)}
           />
         );
       })}
