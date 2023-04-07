@@ -65,6 +65,7 @@ export interface CardProps extends CharacterProps {
 
 export interface CardListProps {
   data: CharacterProps[];
+  error: Error | null;
 }
 
 export interface SearchBarProps {

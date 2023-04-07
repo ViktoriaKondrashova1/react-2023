@@ -27,8 +27,8 @@ const CardList = (props: CardListProps) => {
     setIsOpen(false);
   };
 
-  return !props.data ? (
-    <div className="card-list__error">The cards are not found!</div>
+  return props.error ? (
+    <div className="card-list__error">Error: {props.error.message}</div>
   ) : (
     <div className="card-list__cards" data-testid="cards-list">
       {props.data.map((item) => {
