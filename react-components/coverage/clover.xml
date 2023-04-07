@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680865514395" clover="3.2.0">
-  <project timestamp="1680865514395" name="All files">
-    <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1" elements="20" coveredelements="20" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
-    <file name="searchBar.tsx" path="D:\FrontEnd курс\react-2023\react-components\src\components\searchBar\searchBar.tsx">
-      <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+<coverage generated="1680867778192" clover="3.2.0">
+  <project timestamp="1680867778193" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1" elements="18" coveredelements="18" complexity="0" loc="16" ncloc="16" packages="1" files="1" classes="1"/>
+    <file name="card.tsx" path="D:\FrontEnd курс\react-2023\react-components\src\components\card\card.tsx">
+      <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -20,8 +20,6 @@
       <line num="14" count="1" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
       <line num="16" count="1" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
