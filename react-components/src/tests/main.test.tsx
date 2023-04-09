@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import Main from "../pages/main/main";
-import data from "../assets/data.json";
 
 describe("Main component", () => {
-  it("Renders Main", () => {
-    render(<Main />, { wrapper: BrowserRouter });
-
-    const cardsList = screen.getByTestId("cards-list");
-
-    expect(cardsList).toBeInTheDocument();
-    expect(cardsList).not.toBeEmptyDOMElement();
-    expect(screen.getAllByTestId("card")).toHaveLength(data.length);
+  it("Renders Main", async () => {
+    render(<Main />);
+    expect(screen.getByText("Progressing...")).toBeInTheDocument();
+    const search = (await screen.findByTestId(
+      "search-input"
+    )) as HTMLInputElement;
+    await userEvent.type(search, "rick");
+    await userEvent.keyboard("{enter}");
+    expect(search.value).toBe("rick");
   });
 });

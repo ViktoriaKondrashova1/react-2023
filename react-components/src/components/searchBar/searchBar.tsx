@@ -10,6 +10,7 @@ const SearchBar = (props: SearchBarProps) => {
         placeholder="Search..."
         defaultValue={props.value}
         onKeyDown={props.handleKeyDown}
+        data-testid="search-input"
       />
     </div>
   );

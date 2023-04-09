@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
 import { vi } from "vitest";
 import Card from "../components/card/card";
 
@@ -13,10 +12,7 @@ describe("Card component", () => {
         image={"https://rickandmortyapi.com/api/character/avatar/1.jpeg"}
         status={"Alive"}
         handleClick={mockCardClick}
-      />,
-      {
-        wrapper: BrowserRouter,
-      }
+      />
     );
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       "Rick Sanchez"

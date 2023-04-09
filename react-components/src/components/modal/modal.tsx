@@ -28,6 +28,12 @@ const Modal = (props: ModalProps) => {
             <p className="modal__info-item">
               Location: {props.data.location!.name}
             </p>
+            <p className="modal__info-item">
+              Created:{" "}
+              {props.data.created
+                ? new Date(props.data.created).toLocaleDateString("en-GB")
+                : null}
+            </p>
           </div>
         </div>
       </div>
