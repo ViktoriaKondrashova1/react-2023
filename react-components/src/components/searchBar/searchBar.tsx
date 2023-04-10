@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { SearchBarProps } from "../../types";
 import "./searchBar.scss";
 
-const SearchBar = () => {
-  const [value, setValue] = useState<string>(
-    localStorage.getItem("search") || ""
-  );
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-
-  useEffect(() => {
-    localStorage.setItem("search", value);
-  }, [value]);
-
+const SearchBar = (props: SearchBarProps) => {
   return (
     <div className="search">
       <input
         type="search"
         className="search__input"
         placeholder="Search..."
-        defaultValue={value}
-        onChange={handleChange}
+        defaultValue={props.value}
+        onKeyDown={props.handleKeyDown}
+        data-testid="search-input"
       />
-      <button type="submit" className="search__btn">
-        Search
-      </button>
     </div>
   );
 };

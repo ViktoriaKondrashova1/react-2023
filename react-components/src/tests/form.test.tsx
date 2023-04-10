@@ -2,6 +2,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { vi } from "vitest";
 import Form from "../containers/form/form";
 
+afterEach(() => {
+  vi.resetAllMocks();
+});
+
 const mockValidData = [
   {
     name: "Ivan",
