@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Form from "../../containers/form/form";
 import UserCard from "../../components/userCard/userCard";
-import { UserCardProps } from "../../types";
+import { UserCardProps, FormCardsState } from "../../types";
+import { updateCards } from "../../store/formCardsSlice";
 import "./formPage.scss";
 
 const FormPage = () => {
-  const [userCardList, setUserCardList] = useState<UserCardProps[]>([]);
+  const dispatch = useDispatch();
+  const userCardList = useSelector(
+    (state: FormCardsState) => state.formCardsList.cards
+  );
 
   const clickSubmit = (value: UserCardProps[]) => {
-    setUserCardList([...userCardList, ...value]);
+    dispatch(updateCards([...userCardList, ...value]));
   };
 
   return (

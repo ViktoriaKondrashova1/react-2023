@@ -82,5 +82,9 @@ export interface SearchState {
 }
 
 export interface MainCardsState {
-  cardsList: { cards: CharacterProps[] | null };
+  mainCardsList: { cards: CharacterProps[] | null };
+}
+
+export interface FormCardsState {
+  formCardsList: { cards: UserCardProps[] };
 }

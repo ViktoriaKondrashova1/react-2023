@@ -15,7 +15,7 @@ const Main = () => {
     (state: SearchState) => state.searchValue.value
   );
   const searchResult = useSelector(
-    (state: MainCardsState) => state.cardsList.cards
+    (state: MainCardsState) => state.mainCardsList.cards
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
