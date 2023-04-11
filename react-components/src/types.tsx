@@ -69,11 +69,14 @@ export interface CardListProps {
 
 export interface SearchBarProps {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  value: string;
 }
 
 export interface ModalProps {
   data: CharacterProps;
   isOpen: boolean;
   handleClick: () => void;
+}
+
+export interface SearchState {
+  searchValue: { value: string };
 }
