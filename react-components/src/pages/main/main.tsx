@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "../../components/searchBar/searchBar";
 import CardList from "../../containers/cardList/cardList";
-import { CharacterProps, SearchState } from "../../types";
+import { MainCardsState, SearchState } from "../../types";
 import { updateValue } from "../../store/searchSlice";
+import { updateCards } from "../../store/mainCardsSlice";
 import "./main.scss";
 
 const url = "https://rickandmortyapi.com/api/character";
@@ -13,8 +14,8 @@ const Main = () => {
   const searchValue = useSelector(
     (state: SearchState) => state.searchValue.value
   );
-  const [searchResult, setSearchResult] = useState<CharacterProps[] | null>(
-    null
+  const searchResult = useSelector(
+    (state: MainCardsState) => state.cardsList.cards
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -29,7 +30,7 @@ const Main = () => {
           return res.json();
         })
         .then((data) => {
-          setSearchResult(data.results);
+          dispatch(updateCards(data.results));
           setIsLoading(false);
           setError(null);
         })
@@ -38,11 +39,11 @@ const Main = () => {
           setError(error);
         });
     }, 500);
-  }, [searchValue]);
+  }, [dispatch, searchValue]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      setSearchResult(null);
+      dispatch(updateCards(null));
       setIsLoading(true);
       setError(null);
       dispatch(updateValue(event.currentTarget.value));

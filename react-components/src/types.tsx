@@ -80,3 +80,7 @@ export interface ModalProps {
 export interface SearchState {
   searchValue: { value: string };
 }
+
+export interface MainCardsState {
+  cardsList: { cards: CharacterProps[] | null };
+}
