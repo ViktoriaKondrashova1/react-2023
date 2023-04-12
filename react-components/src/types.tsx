@@ -88,3 +88,7 @@ export interface MainCardsState {
 export interface FormCardsState {
   formCardsList: { cards: UserCardProps[] };
 }
+
+export interface MyApi {
+  results: CharacterProps[];
+}
