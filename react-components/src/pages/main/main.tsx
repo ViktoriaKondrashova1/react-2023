@@ -5,7 +5,7 @@ import CardList from "../../containers/cardList/cardList";
 import { MainCardsState, SearchState } from "../../types";
 import { updateValue } from "../../store/searchSlice";
 import { updateCards } from "../../store/mainCardsSlice";
-import { useGetCharactersQuery } from "../../api/api";
+import { useGetCharactersQuery, useSearchByNameQuery } from "../../api/api";
 import "./main.scss";
 
 const Main = () => {
@@ -18,6 +18,7 @@ const Main = () => {
   );
 
   const { data, isLoading } = useGetCharactersQuery();
+  // const { data, isLoading } = useSearchByNameQuery(searchValue);
 
   const [error, setError] = useState<Error | null>(null);
 

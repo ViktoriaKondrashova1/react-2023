@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { MyApi } from "../types";
+import { MyApi, CharacterProps } from "../types";
 
 export const rickAndMortyApi = createApi({
   reducerPath: "rickAndMortyApi",
@@ -8,7 +8,17 @@ export const rickAndMortyApi = createApi({
     getCharacters: build.query<MyApi, void>({
       query: () => "character",
     }),
+    searchByName: build.query<MyApi, string>({
+      query: (name) => `character/${name && `?name=${name}`}`,
+    }),
+    getCharacterById: build.query<CharacterProps | null, number | undefined>({
+      query: (id) => `character/${id && `${id}`}`,
+    }),
   }),
 });
 
-export const { useGetCharactersQuery } = rickAndMortyApi;
+export const {
+  useGetCharactersQuery,
+  useSearchByNameQuery,
+  useGetCharacterByIdQuery,
+} = rickAndMortyApi;
