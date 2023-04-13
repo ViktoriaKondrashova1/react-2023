@@ -23,27 +23,27 @@ const Main = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (!searchValue) {
-        dispatch(updateCards(data?.results));
-      }
-      // fetch(searchValue ? `${url}?name=${searchValue}` : url)
-      //   .then((res) => {
-      //     if (!res.ok) {
-      //       throw Error("Could not fetch the data");
-      //     }
-      //     return res.json();
-      //   })
-      //   .then((data) => {
-      //     dispatch(updateCards(data.results));
-      //     setIsLoading(false);
-      //     setError(null);
-      //   })
-      //   .catch((error) => {
-      //     setIsLoading(false);
-      //     setError(error);
-      //   });
-    }, 500);
+    if (!searchValue) {
+      dispatch(updateCards(data?.results));
+    }
+    // setTimeout(() => {
+    // fetch(searchValue ? `${url}?name=${searchValue}` : url)
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       throw Error("Could not fetch the data");
+    //     }
+    //     return res.json();
+    //   })
+    //   .then((data) => {
+    //     dispatch(updateCards(data.results));
+    //     setIsLoading(false);
+    //     setError(null);
+    //   })
+    //   .catch((error) => {
+    //     setIsLoading(false);
+    //     setError(error);
+    //   });
+    // }, 500);
   }, [data, dispatch, searchValue]);
 
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
