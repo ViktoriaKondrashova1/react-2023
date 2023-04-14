@@ -1,12 +1,18 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import SearchBar from "../components/searchBar/searchBar";
 import { vi } from "vitest";
+import { Provider } from "react-redux";
+import store from "../store/store";
 
 const mockOnKeyDown = vi.fn();
 
 describe("SearchBar component", () => {
   it("Renders search bar", async () => {
-    render(<SearchBar handleKeyDown={mockOnKeyDown} value={""} />);
+    render(
+      <Provider store={store}>
+        <SearchBar handleKeyDown={mockOnKeyDown} />
+      </Provider>
+    );
 
     const searchInput = screen.getByPlaceholderText(
       "Search..."
