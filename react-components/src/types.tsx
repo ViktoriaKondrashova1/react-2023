@@ -45,7 +45,7 @@ export interface SubmitMessageProps {
 }
 
 export interface CharacterProps {
-  id?: number;
+  id: number;
   name: string;
   image: string;
   status: string;

@@ -7,11 +7,11 @@ import "./cardList.scss";
 
 const CardList = (props: CardListProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [id, setId] = useState<number | undefined>();
+  const [id, setId] = useState<number>(1);
 
   const { data } = useGetCharacterByIdQuery(id);
 
-  const openModal = (id: number | undefined) => {
+  const openModal = (id: number) => {
     setId(id);
     setIsOpen(true);
   };
@@ -29,6 +29,7 @@ const CardList = (props: CardListProps) => {
             key={item.id}
             image={item.image}
             status={item.status}
+            id={item.id}
             handleClick={() => openModal(item.id)}
           />
         );
