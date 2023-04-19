@@ -1,27 +1,23 @@
 import { useState } from "react";
 import Card from "../../components/card/card";
 import Modal from "../../components/modal/modal";
-import { CardListProps, CharacterProps } from "../../types";
+import { CardListProps } from "../../types";
+import { useGetCharacterByIdQuery } from "../../api/api";
 import "./cardList.scss";
-
-const url = "https://rickandmortyapi.com/api/character";
 
 const CardList = (props: CardListProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [modalData, setModalData] = useState<CharacterProps | null>(null);
+  const [id, setId] = useState<number>(1);
 
-  const openModal = (id: number | undefined) => {
-    fetch(`${url}/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setModalData(data);
-      });
+  const { data } = useGetCharacterByIdQuery(id);
+
+  const openModal = (id: number) => {
+    setId(id);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    setModalData(null);
   };
 
   return (
@@ -33,13 +29,12 @@ const CardList = (props: CardListProps) => {
             key={item.id}
             image={item.image}
             status={item.status}
+            id={item.id}
             handleClick={() => openModal(item.id)}
           />
         );
       })}
-      {modalData && (
-        <Modal data={modalData} isOpen={isOpen} handleClick={closeModal} />
-      )}
+      {data && <Modal data={data} isOpen={isOpen} handleClick={closeModal} />}
     </div>
   );
 };

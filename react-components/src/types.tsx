@@ -45,7 +45,7 @@ export interface SubmitMessageProps {
 }
 
 export interface CharacterProps {
-  id?: number;
+  id: number;
   name: string;
   image: string;
   status: string;
@@ -69,11 +69,26 @@ export interface CardListProps {
 
 export interface SearchBarProps {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  value: string;
 }
 
 export interface ModalProps {
   data: CharacterProps;
   isOpen: boolean;
   handleClick: () => void;
+}
+
+export interface SearchState {
+  searchValue: { value: string };
+}
+
+export interface MainCardsState {
+  mainCardsList: { cards: CharacterProps[] | null };
+}
+
+export interface FormCardsState {
+  formCardsList: { cards: UserCardProps[] };
+}
+
+export interface MyApi {
+  results: CharacterProps[];
 }
