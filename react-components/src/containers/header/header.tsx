@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navigation from "../../components/navigation/navigation";
 import "./header.scss";
 
@@ -9,20 +10,18 @@ export const pages = {
 };
 
 const Header = () => {
-  const [title, setTitle] = useState<string>(
-    pages[location.pathname as keyof object]
-      ? `${pages[location.pathname as keyof object]} Page`
-      : ""
-  );
+  const location = useLocation();
 
-  const updateTitle = () => {
+  const [title, setTitle] = useState<string>();
+
+  useEffect(() => {
     setTitle(`${pages[location.pathname as keyof object]} Page`);
-  };
+  }, [location]);
 
   return (
     <header className="header">
       <div className="container header__container">
-        <Navigation handleClick={updateTitle} />
+        <Navigation />
         <h1 className="header__title">{title}</h1>
       </div>
     </header>

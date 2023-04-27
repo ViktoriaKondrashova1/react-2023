@@ -10,6 +10,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
+    "outDir": "dist",
     "moduleResolution": "Node",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
@@ -17,8 +18,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "baseUrl": "./src",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["vite/client"]
   },
-  "include": ["eslintrc.json", "vite.config.js", "src"],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["eslintrc.json", "src", "vite.config.ts", "server.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
