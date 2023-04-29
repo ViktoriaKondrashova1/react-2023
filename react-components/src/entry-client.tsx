@@ -7,9 +7,9 @@ import "./index.scss";
 
 ReactDOM.hydrateRoot(
   document.getElementById("root") as HTMLElement,
-  <BrowserRouter>
-    <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
       <App />
-    </Provider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </Provider>
 );
