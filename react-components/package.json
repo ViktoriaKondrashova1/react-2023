@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "ts-node server.ts",
+    "dev": "npx tsx server.ts",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
-    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",

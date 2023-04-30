@@ -19,10 +19,10 @@ const createServer = async () => {
 
   app.use(vite.middlewares);
 
-  // app.use(
-  //   "/assets",
-  //   express.static(path.resolve(__dirname, "./dist/client/assets"))
-  // );
+  app.use(
+    "/assets",
+    express.static(path.resolve(__dirname, "./dist/client/assets"))
+  );
 
   app.use("*", async (req: Request, res: Response, next: NextFunction) => {
     const url = req.originalUrl;
@@ -38,9 +38,6 @@ const createServer = async () => {
       const { render } = await vite.ssrLoadModule("./src/entry-server.tsx");
 
       const parts = template.split("<!--app-html-->");
-
-      // const appHtml = await render(url, res);
-      // const html = template.replace(`<!--app-html-->`, appHtml);
 
       res.write(parts[0]);
       const stream = render(url, {
