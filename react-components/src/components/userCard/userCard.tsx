@@ -1,8 +1,8 @@
 import React from "react";
-import { userCardProps } from "../../types";
+import { UserCardProps } from "../../types";
 import "./userCard.scss";
 
-const UserCard: React.FC<userCardProps> = (props) => {
+const UserCard: React.FC<UserCardProps> = (props) => {
   return (
     <div className="user-card" data-testid="user-card">
       <img
